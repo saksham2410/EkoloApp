@@ -107,7 +107,7 @@ export default function App() {
             <Animated.View
               style={{ ...styles.heading, opacity: headingOpacity }}
             >
-              <Text style={{ fontSize: 24 }}>Go Green with Ekolo</Text>
+              <Text style={{ fontSize: 24 }}>Go green with Ekolo</Text>
             </Animated.View>
 
             <TapGestureHandler {...gestureHandler}>
