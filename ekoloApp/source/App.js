@@ -16,76 +16,83 @@ import {
   StatusBar,
 } from 'react-native';
 import Logo from './components/Logo/Logo.js';
-import Animated, {useCode, cond, eq, set} from 'react-native-reanimated';
+import Animated, {
+  useCode,
+  cond,
+  eq,
+  set,
+  interpolate,
+} from 'react-native-reanimated';
 import {withTimingTransition} from 'react-native-redash/lib/module/v1';
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const App = () => {
+import {SCREEN_HEIGHT, LOGIN_VIEW_HEIGHT} from './constants';
+export default function App() {
   const scale = useRef(new Animated.Value(0));
-  const scaleAnimation = withTimingTransition(scale.current, {duration: 400});
+  const scaleAnimation = withTimingTransition(scale.current);
+
+  // const translateY = interpolate(scaleAnimation, {
+  //   inputRange: [0, 1],
+  //   outputRange: [SCREEN_HEIGHT, SCREEN_HEIGHT - LOGIN_VIEW_HEIGHT],
+  // });
+
+  const innerLoginY = interpolate(scaleAnimation, {
+    inputRange: [0, 1],
+    outputRange: [LOGIN_VIEW_HEIGHT, 0],
+  });
+
   useCode(() => cond(eq(scale.current, 0), set(scale.current, 1)), []);
+
   return (
-    <View style={{...styles.container}}>
+    <View style={styles.container}>
       <View style={{...styles.logoContainer}}>
         <Logo scale={scaleAnimation} />
       </View>
-      <Animated.View style={{backgroundColor: 'white'}}></Animated.View>
+      <Animated.View
+        style={{
+          backgroundColor: 'white',
+          ...StyleSheet.absoluteFill,
+          transform: [{translateY: SCREEN_HEIGHT - LOGIN_VIEW_HEIGHT}],
+        }}>
+        <Animated.View
+          style={{
+            height: LOGIN_VIEW_HEIGHT,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#2289d6',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            borderWidth: 1,
+          }}>
+          <Text>Overlay Bg</Text>
+        </Animated.View>
+        <Animated.View>
+          <Animated.View
+            style={{
+              height: LOGIN_VIEW_HEIGHT,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'white',
+              borderWidth: 1,
+              transform: [{translateY: innerLoginY}],
+            }}>
+            <Text>Login View</Text>
+          </Animated.View>
+        </Animated.View>
+      </Animated.View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: '#2289d6',
   },
   logoContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
 });
-
-export default App;
