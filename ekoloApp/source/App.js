@@ -140,7 +140,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2289d6",
+    backgroundColor: "green",
   },
   logoContainer: {
     flex: 1,
