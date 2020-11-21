@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Animated, { interpolate } from "react-native-reanimated";
 // import { Ionicons as Icon } from "@expo/vector-icons";
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { TapGestureHandler } from "react-native-gesture-handler";
 const HeaderBackArrow = ({ isOpenAnimation, gestureHandler }) => {
   const opacity = interpolate(isOpenAnimation, {
@@ -12,8 +13,7 @@ const HeaderBackArrow = ({ isOpenAnimation, gestureHandler }) => {
   return (
     <TapGestureHandler {...gestureHandler}>
       <Animated.View style={{ ...styles.backArrow, opacity }}>
-        {/* <Icon name="md-arrow-back" size={24} /> */}
-        <Text>back</Text>
+        <Icon name="west" size={24} />
       </Animated.View>
     </TapGestureHandler>
   );
