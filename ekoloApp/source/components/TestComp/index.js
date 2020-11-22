@@ -3,6 +3,8 @@ import {View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Search from '../Search';
 import Geolocation from '@react-native-community/geolocation';
+import {SCREEN_HEIGHT,SCREEN_WIDTH ,LOGIN_VIEW_HEIGHT} from '../../Constants';
+const ASPECT_RATIO = SCREEN_WIDTH/SCREEN_HEIGHT;
 
 const App = () => {
   useEffect(() => {
@@ -20,6 +22,7 @@ const App = () => {
     <View style={{flex: 1}}>
       <MapView
         style={{flex: 1}}
+        provider='google'
         region={region}
         onRegionChangeComplete={(region) => setRegion(region)}>
         <Marker

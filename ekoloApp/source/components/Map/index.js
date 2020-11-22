@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {View, Image} from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Geocoder from 'react-native-geocoding';
 
 import {getPixelSize} from '../../utils';
@@ -86,7 +86,8 @@ export default class Map extends Component {
       <View style={{flex: 1}}>
         <MapView
           style={{flex: 1}}
-          region={region}
+          initialRegion={region}
+          provider={PROVIDER_GOOGLE}
           showsUserLocation
           loadingEnabled
           ref={(el) => (this.mapView = el)}>
@@ -118,7 +119,10 @@ export default class Map extends Component {
                 </LocationBox>
               </Marker>
 
-              <Marker coordinate={region} anchor={{x: 0, y: 0}}>
+              <Marker
+                coordinate={region}
+                anchor={{x: 0, y: 0}}
+                image={markerImage}>
                 <LocationBox>
                   <LocationTimeBox>
                     <LocationTimeText>{duration}</LocationTimeText>
