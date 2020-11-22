@@ -1,5 +1,12 @@
 import React, {useEffect, Fragment, useState} from 'react';
-import {View, Image, StyleSheet, SafeAreaView} from 'react-native';
+import {
+  View,
+  Image,
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  Button,
+} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Geocoder from 'react-native-geocoding';
 
@@ -9,11 +16,14 @@ import Search from '../../components/Search';
 import Directions from '../../components/Directions';
 import Details from '../../components/Details';
 import Geolocation from '@react-native-community/geolocation';
+import Feather from 'react-native-vector-icons/Feather';
 
 import markerImage from '../../assets/marker.png';
 import backImage from '../../assets/back.png';
 import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
 
 import {
   Back,
@@ -33,6 +43,7 @@ const Map = (props) => {
   const [duration, setDuration] = useState(null);
   const [location, setLocation] = useState(null);
   const [pickup, setPickup] = useState(null);
+  const { navigation } = props;
 
   //   state = {
   //     region: null,
@@ -46,7 +57,7 @@ const Map = (props) => {
     async function fetchMyAPI() {
       Geolocation.getCurrentPosition(
         async (info) => {
-          console.log(info);
+          // console.log(info);
           let latitude = info.coords.latitude;
 
           let longitude = info.coords.longitude;
@@ -63,25 +74,9 @@ const Map = (props) => {
           setPickup({
             latitude,
             longitude,
-            latitudeDelta: 0.009,
-            longitudeDelta: 0.009 * ASPECT_RATIO,
+            // latitudeDelta: 0.009,
+            // longitudeDelta: 0.009 * ASPECT_RATIO,
           });
-
-          //   this.setState({
-          //     location,
-          //     region: {
-          //       latitude,
-          //       longitude,
-          //       latitudeDelta: 0.009,
-          //       longitudeDelta: 0.009 * ASPECT_RATIO,
-          //     },
-          //     pickup: {
-          //       latitude,
-          //       longitude,
-          //       latitudeDelta: 0.009,
-          //       longitudeDelta: 0.009 * ASPECT_RATIO,
-          //     },
-          //   });
         }, //sucesso
         () => {}, //erro
         {
@@ -94,41 +89,6 @@ const Map = (props) => {
 
     fetchMyAPI();
   }, []);
-
-  //   async componentDidMount() {
-  //     Geolocation.getCurrentPosition(
-  //       async (info) => {
-  //         console.log(info);
-  //         let latitude = info.coords.latitude;
-  //         let longitude = info.coords.longitude;
-  //         const response = await Geocoder.from({latitude, longitude});
-  //         const address = response.results[0].formatted_address;
-  //         const location = address.substring(0, address.indexOf(','));
-
-  //         this.setState({
-  //           location,
-  //           region: {
-  //             latitude,
-  //             longitude,
-  //             latitudeDelta: 0.009,
-  //             longitudeDelta: 0.009 * ASPECT_RATIO,
-  //           },
-  //           pickup: {
-  //             latitude,
-  //             longitude,
-  //             latitudeDelta: 0.009,
-  //             longitudeDelta: 0.009 * ASPECT_RATIO,
-  //           },
-  //         });
-  //       }, //sucesso
-  //       () => {}, //erro
-  //       {
-  //         timeout: 2000,
-  //         enableHighAccuracy: true,
-  //         maximumAge: 1000,
-  //       },
-  //     );
-  //   }
   const handleLocationSelectedPickup = (data, {geometry}) => {
     const {
       location: {lat: latitude, lng: longitude},
@@ -140,16 +100,6 @@ const Map = (props) => {
       latitudeDelta: 0.009,
       longitudeDelta: 0.009 * ASPECT_RATIO,
     });
-
-    // this.setState({
-    //   pickup: {
-    //     latitude,
-    //     longitude,
-    //     title: data.structured_formatting.main_text,
-    //     latitudeDelta: 0.009,
-    //     longitudeDelta: 0.009 * ASPECT_RATIO,
-    //   },
-    // });
   };
 
   const handleLocationSelectedDrop = (data, {geometry}) => {
@@ -162,105 +112,124 @@ const Map = (props) => {
       longitude,
       title: data.structured_formatting.main_text,
     });
-
-    // this.setState({
-    //   destination: {
-    //     latitude,
-    //     longitude,
-    //     title: data.structured_formatting.main_text,
-    //   },
-    // });
   };
 
   const handleBack = () => {
     setDestination(null);
-    // this.setState({destination: null});
   };
 
   const MarkerDrag = (coordinate, position) => {
     console.log(coordinate, position);
     setPickup(coordinate);
-    // this.setState({pickup: coordinate});
   };
-  //   const {region, destination, duration, location, pickup} = this.state;
 
   return (
     <View style={{flex: 1}}>
-      <MapView
-        style={StyleSheet.absoluteFillObject}
-        initialRegion={region}
-        // region={pickup}
-        provider={PROVIDER_GOOGLE}
-        showsUserLocation
-        loadingEnabled
-        ref={(el) => (this.mapView = el)}>
-        {destination && pickup && (
-          <Fragment>
-            <Directions
-              origin={pickup}
-              destination={destination}
-              onReady={(result) => {
-                console.log(result);
-                // this.setState({duration: Math.floor(result.duration)});
-                setDuration(Math.floor(result.duration));
+      {/* <TouchableOpacity>
+        <Text>Hello</Text>
+      </TouchableOpacity> */}
+      {/* <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator> */}
+      {region != null && pickup != null ? (
+        <View style={{flex: 1}}>
+          <MapView
+            style={StyleSheet.absoluteFillObject}
+            initialRegion={region}
+            onRegionChangeComplete={(pickup) => setRegion(pickup)}
+            // region={pickup}
+            provider={PROVIDER_GOOGLE}
+            showsUserLocation
+            loadingEnabled
+            ref={(el) => (this.mapView = el)}>
+            {destination && pickup && (
+              <Fragment>
+                <Directions
+                  origin={pickup}
+                  destination={destination}
+                  onReady={(result) => {
+                    console.log(result);
+                    // this.setState({duration: Math.floor(result.duration)});
+                    setDuration(Math.floor(result.duration));
 
-                this.mapView.fitToCoordinates(result.coordinates, {
-                  edgePadding: {
-                    right: getPixelSize(50),
-                    left: getPixelSize(50),
-                    top: getPixelSize(50),
-                    bottom: getPixelSize(350),
-                  },
-                });
-              }}
-            />
-            <Marker
-              coordinate={(region.latitude, region.longitude)}
-              anchor={{x: 0, y: 0}}
-              image={markerImage}>
-              <LocationBox>
-                <LocationText>{destination.title}</LocationText>
-              </LocationBox>
-            </Marker>
+                    this.mapView.fitToCoordinates(result.coordinates, {
+                      edgePadding: {
+                        right: getPixelSize(50),
+                        left: getPixelSize(50),
+                        top: getPixelSize(50),
+                        bottom: getPixelSize(350),
+                      },
+                    });
+                  }}
+                />
+                <Marker
+                  coordinate={destination}
+                  anchor={{x: 0, y: 0}}
+                  image={markerImage}>
+                  <LocationBox>
+                    <LocationText>{destination.title}</LocationText>
+                  </LocationBox>
+                </Marker>
+
+                <Marker
+                  coordinate={pickup}
+                  anchor={{x: 0, y: 0}}
+                  image={markerImage}>
+                  <LocationBox>
+                    <LocationTimeBox>
+                      <LocationTimeText>{duration}</LocationTimeText>
+                      <LocationTimeTextSmall>MIN</LocationTimeTextSmall>
+                    </LocationTimeBox>
+                    <LocationText>{location}</LocationText>
+                  </LocationBox>
+                </Marker>
+              </Fragment>
+            )}
 
             <Marker
               coordinate={pickup}
               anchor={{x: 0, y: 0}}
-              image={markerImage}>
-              <LocationBox>
-                <LocationTimeBox>
-                  <LocationTimeText>{duration}</LocationTimeText>
-                  <LocationTimeTextSmall>MIN</LocationTimeTextSmall>
-                </LocationTimeBox>
-                <LocationText>{location}</LocationText>
-              </LocationBox>
-            </Marker>
-          </Fragment>
-        )}
+              draggable
+              isPreselected={true}
+              title="Your Location"
+              // onDragEnd={(e) => setPickup(e.nativeEvent.coordinate)}
+              onDragEnd={(e) => console.log(e)}
+            />
+          </MapView>
 
-        <Marker
-          coordinate={pickup}
-          draggable
-          isPreselected={true}
-          onDragEnd={(e) => setPickup(e.nativeEvent.coordinate)}
-        />
-      </MapView>
-
-      {destination ? (
-        <Fragment>
-          <Back onPress={handleBack}>
-            <Image source={backImage} />
-          </Back>
-          <Details />
-        </Fragment>
-      ) : (
-        <SafeAreaView>
-          <Search
-            onLocationSelected={handleLocationSelectedPickup}
-            type="pickup"
+          {destination ? (
+            <Fragment>
+              <Back onPress={handleBack}>
+                <Image source={backImage} />
+              </Back>
+              <Details />
+            </Fragment>
+          ) : (
+            <SafeAreaView>
+              <Search
+                onLocationSelected={handleLocationSelectedPickup}
+                type="pickup"
+              />
+              <Search
+                onLocationSelected={handleLocationSelectedDrop}
+                type="drop"
+              />
+            </SafeAreaView>
+          )}
+          <Feather
+            name="menu"
+            size={35}
+            style={{marginLeft: 20, top: 0}}
+            onPress={() => {
+              navigation.openDrawer();
+            }}
           />
-          <Search onLocationSelected={handleLocationSelectedDrop} type="drop" />
-        </SafeAreaView>
+        </View>
+      ) : (
+        <View>
+          <Text>Loading</Text>
+        </View>
       )}
     </View>
   );

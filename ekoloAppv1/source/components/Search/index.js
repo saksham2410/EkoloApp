@@ -12,9 +12,9 @@ const Search = (props) => {
 
   const ref = useRef();
 
-  useEffect(() => {
-    ref.current?.isFocused((info) => console.log(info));
-  }, []);
+  // useEffect(() => {
+  //   ref.current?.isFocused((info) => console.log(info));
+  // }, []);
 
   // const {searchFocused} = this.state;
   const {onLocationSelected, type} = props;
@@ -33,9 +33,7 @@ const Search = (props) => {
       <View style={{...styless.greenDot}} />
       <GooglePlacesAutocomplete
         ref={ref}
-        placeholder={
-          type === 'pickup' ? 'Pickup Location?' : 'Drop Location?'
-        }
+        placeholder={type === 'pickup' ? 'Pickup Location?' : 'Drop Location?'}
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
           console.log(data, details, Config.MAPS_KEY);
@@ -47,6 +45,9 @@ const Search = (props) => {
           components: 'country:in',
         }}
         textInputProps={{
+          onFocus: (e) => {
+            console.log(e);
+          },
           placeholderTextColor: '#333',
           // InputComp: Input,
           leftIcon: {type: 'font-awesome', name: 'chevron-left'},
