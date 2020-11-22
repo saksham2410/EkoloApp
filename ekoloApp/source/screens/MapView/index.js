@@ -5,9 +5,9 @@ import Geocoder from 'react-native-geocoding';
 
 import {getPixelSize} from '../../utils';
 
-import Search from '../Search';
-import Directions from '../Directions';
-import Details from '../Details';
+import Search from '../../components/Search';
+import Directions from '../../components/Directions';
+import Details from '../../components/Details';
 import Geolocation from '@react-native-community/geolocation';
 
 import markerImage from '../../assets/marker.png';

@@ -13,7 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		26CC0F51256A878E00021501 /* AirMaps in Resources */ = {isa = PBXBuildFile; fileRef = 26CC0F4F256A878E00021501 /* AirMaps */; };
 		26CC0F52256A878E00021501 /* AirGoogleMaps in Resources */ = {isa = PBXBuildFile; fileRef = 26CC0F50256A878E00021501 /* AirGoogleMaps */; };
-		26CC0F97256A8A9800021501 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		26D37B99256AB1B9004C28EE /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 26D37B98256AB1B9004C28EE /* main.jsbundle */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -43,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* ekoloAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ekoloAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ekoloAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ekoloAppTests.m; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ekoloApp/main.m; sourceTree = "<group>"; };
 		26CC0F4F256A878E00021501 /* AirMaps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AirMaps; path = "../node_modules/react-native-maps/lib/ios/AirMaps"; sourceTree = "<group>"; };
 		26CC0F50256A878E00021501 /* AirGoogleMaps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AirGoogleMaps; path = "../node_modules/react-native-maps/lib/ios/AirGoogleMaps"; sourceTree = "<group>"; };
+		26D37B98256AB1B9004C28EE /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ekoloApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ekoloApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ekoloApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ekoloApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E0DD9BDC87FDC3B09EBB18 /* libPods-ekoloApp-ekoloAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloApp-ekoloAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,13 +130,13 @@
 		13B07FAE1A68108700A75B9A /* ekoloApp */ = {
 			isa = PBXGroup;
 			children = (
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				26D37B98256AB1B9004C28EE /* main.jsbundle */,
 			);
 			name = ekoloApp;
 			sourceTree = "<group>";
@@ -348,9 +348,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26CC0F97256A8A9800021501 /* main.jsbundle in Resources */,
 				26CC0F51256A878E00021501 /* AirMaps in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				26D37B99256AB1B9004C28EE /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				26CC0F52256A878E00021501 /* AirGoogleMaps in Resources */,
 			);
