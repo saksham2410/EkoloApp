@@ -1,8 +1,9 @@
 import React, {useEffect, useRef} from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View, Image} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import Comp from '../TestComp/index';
 // import {Input} from 'react-native-elements';
-// import Feather from 'react-native-vector-icons/Feather';
+import Feather from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation';
 
 const Search = (props) => {
@@ -30,7 +31,7 @@ const Search = (props) => {
 
   return (
     <View>
-      <View style={{...styless.greenDot}} />
+      <View />
       <GooglePlacesAutocomplete
         ref={ref}
         placeholder={type === 'pickup' ? 'Pickup Location?' : 'Drop Location?'}
@@ -43,6 +44,8 @@ const Search = (props) => {
           key: 'AIzaSyB_bXhFmnZbLk9qSl3z8-1Np2QxZLbMSsY',
           language: 'en',
           components: 'country:in',
+          location: '26.841762841620753,75.76300621032716',
+          radius: '120000',
         }}
         textInputProps={{
           onFocus: (e) => {
@@ -50,7 +53,7 @@ const Search = (props) => {
           },
           placeholderTextColor: '#333',
           // InputComp: Input,
-          leftIcon: {type: 'font-awesome', name: 'chevron-left'},
+          // leftIcon: {type: 'font-awesome', name: 'chevron-left'},
           errorStyle: {color: 'red'},
           // onFocus: () => {
           //   this.setState({ searchFocused: true });
@@ -68,7 +71,18 @@ const Search = (props) => {
           // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
           rankby: 'distance',
         }}
-        // renderRightButton={() => <Feather name='heart' size={24}/>}
+        renderLeftButton={() => (
+          <Feather
+            name="menu"
+            size={25}
+            style={{
+              alignContent: 'center',
+              alignSelf: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'transparent',
+            }}
+          />
+        )}
         // predefinedPlaces={[homePlace, workPlace]}
         minLength={2}
         returnKeyType={'search'}
@@ -91,6 +105,21 @@ const Search = (props) => {
             // shadowColor: 'black',
             // marginHorizontal: 20
           },
+          // textInputContainer: {
+          //   backgroundColor: 'rgba(0,0,0,0)',
+          //   borderTopWidth: 0,
+          //   borderBottomWidth: 0,
+          // },
+          // textInput: {
+          //   marginLeft: 0,
+          //   marginRight: 0,
+          //   height: 38,
+          //   color: '#5d5d5d',
+          //   fontSize: 16,
+          // },
+          // predefinedPlacesDescription: {
+          //   color: '#1faadb',
+          // },
           textInputContainer: {
             flex: 1,
             backgroundColor: 'transparent',
@@ -100,7 +129,7 @@ const Search = (props) => {
             borderBottomWidth: 0,
           },
           textInput: {
-            height: 52,
+            height: 45,
             margin: 0,
             borderRadius: 5,
             paddingTop: 0,

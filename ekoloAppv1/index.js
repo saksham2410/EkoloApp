@@ -4,7 +4,10 @@
 import 'react-native-gesture-handler';
 import {AppRegistry, View, Button} from 'react-native';
 import * as React from 'react';
+import Comp from './source/components/TestComp/index';
+import SecondComp from './source/components/SecondTest/index';
 import Map from './source/screens/MapView/index';
+import Login from './source/App';
 import {name as appName} from './app.json';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -32,7 +35,7 @@ const NotificationsScreen = ({navigation}) => {
 const AppDrawer = () => {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={Map } />
+      <Drawer.Screen name="Home" component={SecondComp} />
       <Drawer.Screen name="Notifications" component={NotificationsScreen} />
     </Drawer.Navigator>
   );

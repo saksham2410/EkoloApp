@@ -29,7 +29,7 @@ import HeaderBackArrow from './components/HeaderBackArrow/HeaderBackArrow';
 import ForwardArrow from './components/ForwardArrow/ForwardArrow';
 import AnimatedPlaceholder from './components/AnimatedPlaceholder/AnimatedPlaceholder';
 
-export default function App() {
+export default function Login() {
   const scale = useRef(new Animated.Value(0));
   const scaleAnimation = withTimingTransition(scale.current);
   const textInputRef = useRef(null);

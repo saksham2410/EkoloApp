@@ -74,8 +74,8 @@ const Map = (props) => {
           setPickup({
             latitude,
             longitude,
-            // latitudeDelta: 0.009,
-            // longitudeDelta: 0.009 * ASPECT_RATIO,
+            latitudeDelta: 0.009,
+            longitudeDelta: 0.009 * ASPECT_RATIO,
           });
         }, //sucesso
         () => {}, //erro
@@ -136,7 +136,7 @@ const Map = (props) => {
         <View style={{flex: 1}}>
           <MapView
             style={StyleSheet.absoluteFillObject}
-            initialRegion={region}
+            region={pickup}
             onRegionChangeComplete={(pickup) => setRegion(pickup)}
             // region={pickup}
             provider={PROVIDER_GOOGLE}
@@ -211,10 +211,10 @@ const Map = (props) => {
                 onLocationSelected={handleLocationSelectedPickup}
                 type="pickup"
               />
-              <Search
+              {/* <Search
                 onLocationSelected={handleLocationSelectedDrop}
                 type="drop"
-              />
+              /> */}
             </SafeAreaView>
           )}
           <Feather
