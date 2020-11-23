@@ -1,9 +1,10 @@
 import React, {useEffect, useRef} from 'react';
-import {Platform, StyleSheet, View, Image} from 'react-native';
+import {Platform, StyleSheet, View, Image, Text} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Comp from '../TestComp/index';
 // import {Input} from 'react-native-elements';
 import Feather from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import Geolocation from '@react-native-community/geolocation';
 
 const Search = (props) => {
@@ -14,7 +15,7 @@ const Search = (props) => {
   const ref = useRef();
 
   // useEffect(() => {
-  //   ref.current?.isFocused((info) => console.log(info));
+  //   ref.current?.isFocused(() => console.log());
   // }, []);
 
   // const {searchFocused} = this.state;
@@ -35,22 +36,30 @@ const Search = (props) => {
       <GooglePlacesAutocomplete
         ref={ref}
         placeholder={type === 'pickup' ? 'Pickup Location?' : 'Drop Location?'}
-        onPress={(data, details = null) => {
-          // 'details' is provided when fetchDetails = true
-          console.log(data, details, Config.MAPS_KEY);
-        }}
+        // onPress={(data, details) => {
+        //   // 'details' is provided when fetchDetails = true
+        //   console.log(data, details);
+        // }}
         onPress={onLocationSelected}
         query={{
           key: 'AIzaSyB_bXhFmnZbLk9qSl3z8-1Np2QxZLbMSsY',
           language: 'en',
           components: 'country:in',
           location: '26.841762841620753,75.76300621032716',
-          radius: '120000',
+          radius: '1200000',
+          // strictbounds: true
         }}
+        // renderRow={(results) => {
+        //   if(results.types[0]==='university')
+        //   return (
+        //     <>
+        //       {results.type[0]==='university'?<MaterialCommunityIcons name='school'/>:results.type[0]===''}
+        //       <Text>{results.description}</Text>
+        //     </>
+        //   );
+        // }}
         textInputProps={{
-          onFocus: (e) => {
-            console.log(e);
-          },
+          // onFocus,
           placeholderTextColor: '#333',
           // InputComp: Input,
           // leftIcon: {type: 'font-awesome', name: 'chevron-left'},
@@ -71,6 +80,9 @@ const Search = (props) => {
           // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
           rankby: 'distance',
         }}
+        // GooglePlacesDetailsQuery={{
+        //   fields: 'icon',
+        // }}
         // renderLeftButton={() => (
         //   <Feather
         //     name="menu"
@@ -86,7 +98,7 @@ const Search = (props) => {
         // predefinedPlaces={[homePlace, workPlace]}
         minLength={2}
         returnKeyType={'search'}
-        disableScroll
+        // disableScroll
         enableHighAccuracyLocation
         // currentLocation={true}
         // currentLocationLabel='Current location'
@@ -100,59 +112,64 @@ const Search = (props) => {
             //   ? Platform.select({ios: 50, android: 30})
             //   : Platform.select({ios: 0, android: 90}),
             width: '100%',
+            zIndex: 1000,
             // shadowRadius: 150,
             // shadowOffset: {width: 20, height: 20},
             // shadowColor: 'black',
             // marginHorizontal: 20
           },
           textInputContainer: {
-            flex: 1,
             backgroundColor: 'transparent',
-            height: 54,
+            marginTop: 0,
+            width: '100%',
+            padding: 0,
             borderTopWidth: 0,
             borderBottomWidth: 0,
           },
           textInput: {
+            // backgroundColor: '#F9F5F4',
+            borderRadius: 10,
+            width: '100%',
             height: 45,
-            margin: 0,
-            borderRadius: 5,
-            paddingTop: 0,
-            paddingBottom: 0,
-            paddingLeft: 20,
-            paddingRight: 20,
-            marginTop: 0,
             marginLeft: 0,
             marginRight: 0,
-            elevation: 5,
-            fontWeight: 'bold',
-            color: 'black',
-            // shadowColor: '#000',
-            // shadowOpacity: 0.3,
-            // shadowOffset: {x: 0, y: 4},
-            // shadowRadius: 15,
+            marginTop: 0,
+            paddingLeft: 30,
+            fontSize: 15,
+            elevation: 0,
+            shadowColor: '#000',
+            shadowOpacity: 0.1,
+            shadowOffset: {x: 0, y: 4},
+            shadowRadius: 15,
             borderWidth: 1,
             borderColor: '#DDD',
             fontSize: 18,
           },
-          listView: {
-            zIndex: 100000,
-            borderWidth: 1,
-            borderColor: '#DDD',
-            backgroundColor: 'black',
-            marginHorizontal: 20,
-            elevation: 5,
-            shadowColor: '#000',
-            shadowOpacity: 0.1,
-            shadowOffset: {x: 0, y: 0},
-            shadowRadius: 15,
-            marginTop: 10,
-          },
           description: {
-            fontSize: 16,
+            color: 'black',
+            fontWeight: '300',
+            fontWeight: '400'
           },
+          listView: {
+            position: 'absolute',
+            top: 70,
+            left: 10,
+            right: 10,
+            backgroundColor: 'transparent',
+            borderRadius: 5,
+            flex: 1,
+            elevation: 3,
+            zIndex: 1000,
+            margin: 0,
+          },
+          // description: {
+          //   fontSize: 16,
+          //   // zIndex: 10000
+          // },
           row: {
             padding: 20,
             height: 58,
+            // zIndex: 100000
           },
         }}
       />

@@ -45,10 +45,12 @@ const SecondComp = (props) => {
             <Text style={styles.dropText}>Drop Location?</Text>
             
           </View> */}
+          <SafeAreaView>
           <Search
             onLocationSelected={onLocationSelected}
             style={styles.search2}
           />
+          </SafeAreaView>
 
           {/* <View style={styles.search}>
             <View style={styles.inputWrapper}>
@@ -137,15 +139,18 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     marginTop: 5,
+    // zIndex: -100
   },
   drop: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    zIndex: -100
   },
   dropText: {
     fontWeight: 'bold',
     color: 'black',
+    zIndex: -100
   },
   search: {
     marginVertical: 15,
@@ -157,14 +162,17 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#efeff0',
     borderWidth: 2,
+    zIndex: -100
   },
   search2: {
     padding: 0,
     top: 15,
+    zIndex: -100
   },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    zIndex: -100
   },
   pinkDot: {
     width: 10,
@@ -172,64 +180,77 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ff4858',
     marginRight: 10,
+    zIndex: -100
   },
   bottomCard: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 75,
+    zIndex: -100
   },
   bottomCardPin: {
     flexDirection: 'row',
     alignItems: 'center',
+    zIndex: -100
   },
   bottomCardIcon: {
     marginRight: 10,
     color: '#ff4858',
+    zIndex: -100
   },
   bottomCardText: {
     color: '#92939b',
     fontWeight: '500',
     fontSize: 16,
+    zIndex: -100
   },
   bottomCircle: {},
   contentWrapper: {
     paddingHorizontal: 20,
     marginTop: 40,
+    zIndex: -100
   },
   bigTitle: {
     fontWeight: 'bold',
     fontSize: 20,
     color: '#404151',
     marginBottom: 20,
+    zIndex: -100
   },
   favoriteWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
+    zIndex: -100
   },
   favoriteWrapper2: {
     flexDirection: 'row',
+    zIndex: -100
   },
   favoriteTitle: {
     fontWeight: 'bold',
     fontSize: 16,
     color: '#555664',
     marginBottom: 5,
+    zIndex: -100
   },
   favoriteSubTitle: {
     color: '#a9abb8',
+    zIndex: -100
   },
   recentWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
+    zIndex: -100
   },
   recentText: {
     fontWeight: '500',
     fontSize: 14,
     color: '#80828b',
+    zIndex: -100
   },
 });
 

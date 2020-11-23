@@ -106,6 +106,7 @@ const Map = (props) => {
   };
 
   const handleLocationSelectedDrop = (data, {geometry}) => {
+    // console.log(data,geometry)
     const {
       location: {lat: latitude, lng: longitude},
     } = geometry;
@@ -223,7 +224,9 @@ const Map = (props) => {
                 backgroundColor: 'white',
                 position: 'relative',
               }}>
-              <SecondComp onLocationSelected={handleLocationSelectedDrop} />
+              <SecondComp
+                onLocationSelected={handleLocationSelectedDrop}
+              />
             </SafeAreaView>
           </SlidingUpPanel>
 
