@@ -11,6 +11,7 @@ import Login from './source/App';
 import {name as appName} from './app.json';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import MapView from 'react-native-maps';
 const Drawer = createDrawerNavigator();
 
 const HomeScreen = ({navigation}) => {
@@ -35,7 +36,7 @@ const NotificationsScreen = ({navigation}) => {
 const AppDrawer = () => {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={SecondComp} />
+      <Drawer.Screen name="Home" component={Map} />
       <Drawer.Screen name="Notifications" component={NotificationsScreen} />
     </Drawer.Navigator>
   );

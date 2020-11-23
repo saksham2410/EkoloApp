@@ -22,7 +22,10 @@ import markerImage from '../../assets/marker.png';
 import backImage from '../../assets/back.png';
 import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
+import SlidingUpPanel from 'rn-sliding-up-panel';
+import SecondComp from '../../components/SecondTest/index';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+
 import {NavigationContainer} from '@react-navigation/native';
 
 import {
@@ -43,7 +46,7 @@ const Map = (props) => {
   const [duration, setDuration] = useState(null);
   const [location, setLocation] = useState(null);
   const [pickup, setPickup] = useState(null);
-  const { navigation } = props;
+  const {navigation} = props;
 
   //   state = {
   //     region: null,
@@ -137,7 +140,7 @@ const Map = (props) => {
           <MapView
             style={StyleSheet.absoluteFillObject}
             region={pickup}
-            onRegionChangeComplete={(pickup) => setRegion(pickup)}
+            // onRegionChangeComplete={(pickup) => setRegion(pickup)}
             // region={pickup}
             provider={PROVIDER_GOOGLE}
             showsUserLocation
@@ -191,12 +194,38 @@ const Map = (props) => {
               coordinate={pickup}
               anchor={{x: 0, y: 0}}
               draggable
+              image={markerImage}
               isPreselected={true}
               title="Your Location"
+
               // onDragEnd={(e) => setPickup(e.nativeEvent.coordinate)}
-              onDragEnd={(e) => console.log(e)}
+              // onDragEnd={(e) => console.log(e)}
             />
           </MapView>
+          <SlidingUpPanel
+            ref={(c) => (this._panel = c)}
+            draggableRange={{
+              top: destination ? 0 : SCREEN_HEIGHT,
+              bottom: destination ? 0 : 165,
+            }}
+            onDragEnd={(value, gestureState) => {
+              console.log(value, gestureState);
+            }}
+            // height={20}
+            // onMomentumDragStart={(value, gestureState) => {
+            //   console.log(value, gestureState);
+            // }}
+            animatedValue={this._draggedValue}
+            showBackdrop={false}>
+            <SafeAreaView
+              style={{
+                flex: 1,
+                backgroundColor: 'white',
+                position: 'relative',
+              }}>
+              <SecondComp onLocationSelected={handleLocationSelectedDrop} />
+            </SafeAreaView>
+          </SlidingUpPanel>
 
           {destination ? (
             <Fragment>
@@ -220,7 +249,11 @@ const Map = (props) => {
           <Feather
             name="menu"
             size={35}
-            style={{marginLeft: 20, top: 0}}
+            style={{
+              marginLeft: 20,
+              top: 0,
+              display: destination ? 'none' : 'flex',
+            }}
             onPress={() => {
               navigation.openDrawer();
             }}

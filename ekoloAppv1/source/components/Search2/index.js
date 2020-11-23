@@ -95,36 +95,20 @@ const Search = (props) => {
         styles={{
           container: {
             position: 'absolute',
-            top:
-              type === 'pickup'
-                ? Platform.select({ios: 50, android: 30})
-                : Platform.select({ios: 110, android: 90}),
+            top: 10,
+            // type === 'pickup'
+            //   ? Platform.select({ios: 50, android: 30})
+            //   : Platform.select({ios: 0, android: 90}),
             width: '100%',
             // shadowRadius: 150,
             // shadowOffset: {width: 20, height: 20},
             // shadowColor: 'black',
             // marginHorizontal: 20
           },
-          // textInputContainer: {
-          //   backgroundColor: 'rgba(0,0,0,0)',
-          //   borderTopWidth: 0,
-          //   borderBottomWidth: 0,
-          // },
-          // textInput: {
-          //   marginLeft: 0,
-          //   marginRight: 0,
-          //   height: 38,
-          //   color: '#5d5d5d',
-          //   fontSize: 16,
-          // },
-          // predefinedPlacesDescription: {
-          //   color: '#1faadb',
-          // },
           textInputContainer: {
             flex: 1,
             backgroundColor: 'transparent',
             height: 54,
-            marginHorizontal: 20,
             borderTopWidth: 0,
             borderBottomWidth: 0,
           },
@@ -140,10 +124,12 @@ const Search = (props) => {
             marginLeft: 0,
             marginRight: 0,
             elevation: 5,
-            shadowColor: '#000',
-            shadowOpacity: 0.3,
-            shadowOffset: {x: 0, y: 4},
-            shadowRadius: 15,
+            fontWeight: 'bold',
+            color: 'black',
+            // shadowColor: '#000',
+            // shadowOpacity: 0.3,
+            // shadowOffset: {x: 0, y: 4},
+            // shadowRadius: 15,
             borderWidth: 1,
             borderColor: '#DDD',
             fontSize: 18,
@@ -152,7 +138,7 @@ const Search = (props) => {
             zIndex: 100000,
             borderWidth: 1,
             borderColor: '#DDD',
-            backgroundColor: '#FFF',
+            backgroundColor: 'black',
             marginHorizontal: 20,
             elevation: 5,
             shadowColor: '#000',

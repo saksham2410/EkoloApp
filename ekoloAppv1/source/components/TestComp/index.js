@@ -40,7 +40,7 @@ import {
   State,
 } from 'react-native-gesture-handler';
 // import mapStyle from './style'
-import SecondComp from '../SecondTest/index'
+import SecondComp from '../SecondTest/index';
 
 const Comp = () => {
   // useEffect(() => {
@@ -107,12 +107,18 @@ const Comp = () => {
       </View>
       <SlidingUpPanel
         ref={(c) => (this._panel = c)}
-        draggableRange={{top: SCREEN_HEIGHT, bottom: 120}}
+        draggableRange={{top: SCREEN_HEIGHT, bottom: 165}}
+        onDragEnd={(value, gestureState) => {
+          console.log(value, gestureState);
+        }}
+        // onMomentumDragStart={(value, gestureState) => {
+        //   console.log(value, gestureState);
+        // }}
         animatedValue={this._draggedValue}
         showBackdrop={false}>
-        <View style={styles.panel}>
-          <SecondComp/>
-        </View>
+          <SafeAreaView style={styles.panel}>
+          <SecondComp />
+        </SafeAreaView>
       </SlidingUpPanel>
     </View>
   );
