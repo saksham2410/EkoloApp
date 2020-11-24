@@ -53,6 +53,7 @@ const Map = (props) => {
   const [focusDrop, setfocusDrop] = useState(false);
   const {navigation} = props;
 
+  const map = useRef(null);
   //   state = {
   //     region: null,
   //     destination: null,
@@ -111,8 +112,8 @@ const Map = (props) => {
     });
   };
   useEffect(() => {
-    // map && map.animateToRegion(pickup);
-    ref.current?.animateToRegion(pickup);
+    map.current && map.current.animateToRegion(pickup);
+    // ref.current?.animateToRegion(pickup);
   }, [pickup]);
   // useEffect(() => {
   //   console.log(focusPickup);
@@ -178,7 +179,7 @@ const Map = (props) => {
             // region={pickup}
             provider={PROVIDER_GOOGLE}
             showsUserLocation
-            ref={ref}
+            ref={map}
             loadingEnabled>
             {destination && pickup && (
               <Fragment>
@@ -190,7 +191,7 @@ const Map = (props) => {
                     // this.setState({duration: Math.floor(result.duration)});
                     setDuration(Math.floor(result.duration));
 
-                    this.mapView.fitToCoordinates(result.coordinates, {
+                    map.current.fitToCoordinates(result.coordinates, {
                       edgePadding: {
                         right: getPixelSize(50),
                         left: getPixelSize(50),
@@ -247,7 +248,7 @@ const Map = (props) => {
             <Image style={{height: 48, width: 48}} source={marker} />
           </View>
 
-          {destination ? (
+          {destination && pickup ? (
             <Fragment>
               <Back onPress={handleBack}>
                 <Image source={backImage} />
@@ -290,18 +291,8 @@ const Map = (props) => {
         style={{zIndex: 1000000}}
         // ref={(c) => (this._panel = c)}
         draggableRange={{
-          top:
-            destination || focusPickup
-              ? 0
-              : focusDrop
-              ? SCREEN_HEIGHT
-              : SCREEN_HEIGHT,
-          bottom:
-            destination || focusPickup
-              ? 0
-              : focusDrop
-              ? (SCREEN_HEIGHT * 4) / 5
-              : 165,
+          top: destination ? 0 : focusDrop ? SCREEN_HEIGHT : SCREEN_HEIGHT,
+          bottom: destination ? 0 : focusDrop ? (SCREEN_HEIGHT * 4) / 5 : 200,
         }}
         onDragEnd={(value, gestureState) => {
           console.log(value, gestureState);

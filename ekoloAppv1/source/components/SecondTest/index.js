@@ -14,6 +14,7 @@ import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
 import './data2';
 import './data3';
+import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -23,6 +24,8 @@ import OverlayBg from '../OverlayBg/OverlayBg';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import data2 from './data2';
 import data3 from './data3';
+import data from './data';
+import {ButtonGroup} from 'react-native-elements';
 // import mapStyle from './style'
 
 const SecondComp = (props) => {
@@ -44,10 +47,26 @@ const SecondComp = (props) => {
 
   const ref = useCallback((node) => {
     if (node !== null) {
-      props.dropFocus(node.isFocused())
+      props.dropFocus(node.isFocused());
       console.log('ref2', node.isFocused()); // node = elRef.current
     }
   }, []);
+  // const component1 = () => {
+  //   <View >
+  //     <MaterialCommunityIcons name='motorbike' size={24} />
+  //     <Text>Ride</Text>
+  //   </View>;
+  // };
+  // const component2 = () => {
+  //   <View >
+  //   <MaterialCommunityIcons name='motorbike' size={24} />
+  //   <Text>Ride</Text>
+  // </View>;
+  // }
+  // const component3 = () => <Text>ButtonGroup</Text>;
+  const onTouchKey = (val) => {
+    console.log('category', val);
+  };
 
   return (
     <View style={styles.container}>
@@ -55,6 +74,19 @@ const SecondComp = (props) => {
         <Fontisto name="arrow-left-l" size={24} style={{marginLeft: 10}} />
       </TouchableOpacity>
       <SafeAreaView>
+        <View style={styles.upperCard}>
+          {data.map((data) => {
+            return (
+              <TouchableOpacity
+                key={data.id}
+                style={styles.category}
+                onPress={(e) => console.log(e)}>
+                <MaterialCommunityIcons name={data.icon} size={24} />
+                <Text>{data.name}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
         <View style={styles.card}>
           {/* <View style={styles.drop}>
             <Text style={styles.dropText}>Drop Location?</Text>
@@ -81,7 +113,7 @@ const SecondComp = (props) => {
             </View>
           </View> */}
           <View style={styles.bottomCard}>
-            <View style={styles.bottomCardPin}>
+            <TouchableOpacity style={styles.bottomCardPin}>
               <Fontisto
                 name="map-marker-alt"
                 size={20}
@@ -90,7 +122,7 @@ const SecondComp = (props) => {
               <Text style={styles.bottomCardText}>
                 Tap to select from the map
               </Text>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.bottomCircle}>
               <Feather name="arrow-right" size={20} style={{marginRight: 20}} />
             </TouchableOpacity>
@@ -148,9 +180,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFF',
   },
-  card: {
+  upperCard: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+
     paddingTop: 15,
     padding: 5,
+    // marginHorizontal: 10,
+    borderColor: '#efefef',
+    borderWidth: 1,
+    borderRadius: 20,
+    // marginTop: 5,
+    // flexDirection: 'row'
+    // zIndex: -100
+  },
+  category: {
+    alignItems: 'center',
+    marginLeft: 40,
+    marginRight: 40,
+  },
+  card: {
+    // paddingTop: 15,
+    paddingBottom: 5,
     marginHorizontal: 10,
     borderColor: '#efefef',
     borderWidth: 1,
@@ -205,7 +256,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 70,
     zIndex: -100,
-    padding: 5
+    padding: 5,
   },
   bottomCardPin: {
     flexDirection: 'row',

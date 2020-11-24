@@ -25,7 +25,7 @@ const Search = (props) => {
   // }, [ref.current?.isFocused(), searchFocused]);
   const ref = useCallback((node) => {
     if (node !== null) {
-      props.childFocus(node.isFocused())
+      props.childFocus(node.isFocused());
       // console.log('ref', node.isFocused()); // node = elRef.current
     }
   }, []);
@@ -164,9 +164,9 @@ const Search = (props) => {
           listView: {
             position: 'absolute',
             // alignSelf: 'flex-start',
-            alignContent: 'flex-start',
+            // alignContent: 'flex-start',
             // alignItems: 'flex-start',
-            // top: 70,
+            top: 50,
             left: 10,
             right: 10,
             backgroundColor: 'transparent',
