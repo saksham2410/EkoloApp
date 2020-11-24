@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback} from 'react';
 import {
   View,
   StyleSheet,
@@ -26,13 +26,28 @@ import data3 from './data3';
 // import mapStyle from './style'
 
 const SecondComp = (props) => {
-  const {onLocationSelected, type} = props;
+  const {onLocationSelected, type, dropFocus} = props;
   const [region, setRegion] = useState({
     latitude: 26.841762841620753,
     longitude: 75.76300621032716,
     latitudeDelta: 0.009,
     longitudeDelta: 0.009 * ASPECT_RATIO,
   });
+  const [isfocus, setisfocus] = useState(false);
+  // const yoyo = (val) => {
+  //   if (val === 'true' || val === 'false') setisfocus(val);
+  // };
+  // useEffect(() => {
+  //   dropFocus(isfocus);
+  //   console.log('secondtest',isfocus)
+  // }, [isfocus]);
+
+  const ref = useCallback((node) => {
+    if (node !== null) {
+      props.dropFocus(node.isFocused())
+      console.log('ref2', node.isFocused()); // node = elRef.current
+    }
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -46,10 +61,11 @@ const SecondComp = (props) => {
             
           </View> */}
           <SafeAreaView>
-          <Search
-            onLocationSelected={onLocationSelected}
-            style={styles.search2}
-          />
+            <Search
+              onLocationSelected={onLocationSelected}
+              style={styles.search2}
+              ref={ref}
+            />
           </SafeAreaView>
 
           {/* <View style={styles.search}>
@@ -133,7 +149,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   card: {
-    padding: 15,
+    paddingTop: 15,
+    padding: 5,
     marginHorizontal: 10,
     borderColor: '#efefef',
     borderWidth: 1,
@@ -145,12 +162,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    zIndex: -100
+    zIndex: -100,
   },
   dropText: {
     fontWeight: 'bold',
     color: 'black',
-    zIndex: -100
+    zIndex: -100,
   },
   search: {
     marginVertical: 15,
@@ -162,17 +179,17 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#efeff0',
     borderWidth: 2,
-    zIndex: -100
+    zIndex: -100,
   },
   search2: {
     padding: 0,
     top: 15,
-    zIndex: -100
+    zIndex: -100,
   },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    zIndex: -100
+    zIndex: -100,
   },
   pinkDot: {
     width: 10,
@@ -180,77 +197,78 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ff4858',
     marginRight: 10,
-    zIndex: -100
+    zIndex: -100,
   },
   bottomCard: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 75,
-    zIndex: -100
+    marginTop: 70,
+    zIndex: -100,
+    padding: 5
   },
   bottomCardPin: {
     flexDirection: 'row',
     alignItems: 'center',
-    zIndex: -100
+    zIndex: -100,
   },
   bottomCardIcon: {
     marginRight: 10,
     color: '#ff4858',
-    zIndex: -100
+    zIndex: -100,
   },
   bottomCardText: {
     color: '#92939b',
     fontWeight: '500',
     fontSize: 16,
-    zIndex: -100
+    zIndex: -100,
   },
   bottomCircle: {},
   contentWrapper: {
     paddingHorizontal: 20,
     marginTop: 40,
-    zIndex: -100
+    zIndex: -100,
   },
   bigTitle: {
     fontWeight: 'bold',
     fontSize: 20,
     color: '#404151',
     marginBottom: 20,
-    zIndex: -100
+    zIndex: -100,
   },
   favoriteWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
-    zIndex: -100
+    zIndex: -100,
   },
   favoriteWrapper2: {
     flexDirection: 'row',
-    zIndex: -100
+    zIndex: -100,
   },
   favoriteTitle: {
     fontWeight: 'bold',
     fontSize: 16,
     color: '#555664',
     marginBottom: 5,
-    zIndex: -100
+    zIndex: -100,
   },
   favoriteSubTitle: {
     color: '#a9abb8',
-    zIndex: -100
+    zIndex: -100,
   },
   recentWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
-    zIndex: -100
+    zIndex: -100,
   },
   recentText: {
     fontWeight: '500',
     fontSize: 14,
     color: '#80828b',
-    zIndex: -100
+    zIndex: -100,
   },
 });
 

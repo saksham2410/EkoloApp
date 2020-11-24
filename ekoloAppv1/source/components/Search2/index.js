@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useCallback} from 'react';
 import {Platform, StyleSheet, View, Image, Text} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Comp from '../TestComp/index';
@@ -7,19 +7,26 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import Geolocation from '@react-native-community/geolocation';
 
-const Search = (props) => {
+const Search = React.forwardRef((props,ref) => {
   //   state = {
   //     searchFocused: false,
   //   };
 
-  const ref = useRef();
+  // const ref = useRef();
+  // const dropFocused = ref.current?.isFocused();
 
   // useEffect(() => {
-  //   ref.current?.isFocused(() => console.log());
-  // }, []);
+  //   console.log(dropFocused);
+  // }, [dropFocused]);
 
   // const {searchFocused} = this.state;
-  const {onLocationSelected, type} = props;
+  const {onLocationSelected, type, dropFocus} = props;
+  // const ref = useCallback((node) => {
+  //   if (node !== null) {
+  //     props.dropFocus(node.isFocused())
+  //     // console.log('ref', node.isFocused()); // node = elRef.current
+  //   }
+  // }, []);
   const homePlace = {
     description: 'Home',
     geometry: {location: {lat: 48.8152937, lng: 2.4597668}},
@@ -148,7 +155,7 @@ const Search = (props) => {
           description: {
             color: 'black',
             fontWeight: '300',
-            fontWeight: '400'
+            fontWeight: '400',
           },
           listView: {
             position: 'absolute',
@@ -175,7 +182,7 @@ const Search = (props) => {
       />
     </View>
   );
-};
+});
 
 export default Search;
 

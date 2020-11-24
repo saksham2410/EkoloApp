@@ -12,6 +12,7 @@ import Geolocation from '@react-native-community/geolocation';
 
 import markerImage from '../../assets/marker.png';
 import backImage from '../../assets/back.png';
+import SlidingUpPanel from 'rn-sliding-up-panel';
 
 import {
   Back,
@@ -135,6 +136,7 @@ export default class Map extends Component {
             </Fragment>
           )}
         </MapView>
+       
 
         {destination ? (
           <Fragment>

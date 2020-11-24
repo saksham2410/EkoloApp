@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState, useCallback} from 'react';
 import {Platform, StyleSheet, View, Image} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Comp from '../TestComp/index';
@@ -7,18 +7,33 @@ import Feather from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation';
 
 const Search = (props) => {
+  const {onLocationSelected, type, pickupFocus, childFocus} = props;
+
   //   state = {
   //     searchFocused: false,
   //   };
 
-  const ref = useRef();
+  // const ref = useRef();
+
+  const [searchFocused, setsearchFocus] = useState(false);
 
   // useEffect(() => {
-  //   ref.current?.isFocused((info) => console.log(info));
-  // }, []);
+  //   // searchFocused = ref.current?.isFocused();
+  //   console.log('not here', searchFocused);
+  //   setsearchFocus(ref.current?.isFocused());
+  //   // pickupFocus(ref.current?.isFocused());
+  // }, [ref.current?.isFocused(), searchFocused]);
+  const ref = useCallback((node) => {
+    if (node !== null) {
+      props.childFocus(node.isFocused())
+      // console.log('ref', node.isFocused()); // node = elRef.current
+    }
+  }, []);
 
-  // const {searchFocused} = this.state;
-  const {onLocationSelected, type} = props;
+  // useEffect(() => {
+  //   pickupFocus;
+  // }, [pickupFocus]);
+
   const homePlace = {
     description: 'Home',
     geometry: {location: {lat: 48.8152937, lng: 2.4597668}},
@@ -35,10 +50,6 @@ const Search = (props) => {
       <GooglePlacesAutocomplete
         ref={ref}
         placeholder={type === 'pickup' ? 'Pickup Location?' : 'Drop Location?'}
-        onPress={(data, details = null) => {
-          // 'details' is provided when fetchDetails = true
-          console.log(data, details, Config.MAPS_KEY);
-        }}
         onPress={onLocationSelected}
         query={{
           key: 'AIzaSyB_bXhFmnZbLk9qSl3z8-1Np2QxZLbMSsY',
@@ -48,9 +59,7 @@ const Search = (props) => {
           radius: '120000',
         }}
         textInputProps={{
-          onFocus: (e) => {
-            console.log(e);
-          },
+          onFocus: childFocus,
           placeholderTextColor: '#333',
           // InputComp: Input,
           // leftIcon: {type: 'font-awesome', name: 'chevron-left'},
@@ -100,6 +109,7 @@ const Search = (props) => {
                 ? Platform.select({ios: 50, android: 30})
                 : Platform.select({ios: 110, android: 90}),
             width: '100%',
+            // height: '100%',
             // shadowRadius: 150,
             // shadowOffset: {width: 20, height: 20},
             // shadowColor: 'black',
@@ -123,7 +133,7 @@ const Search = (props) => {
           textInputContainer: {
             flex: 1,
             backgroundColor: 'transparent',
-            height: 54,
+            height: '100%',
             marginHorizontal: 20,
             borderTopWidth: 0,
             borderBottomWidth: 0,
@@ -149,11 +159,14 @@ const Search = (props) => {
           description: {
             color: 'black',
             fontWeight: '300',
-            fontWeight: '400'
+            fontWeight: '400',
           },
           listView: {
             position: 'absolute',
-            top: 70,
+            // alignSelf: 'flex-start',
+            alignContent: 'flex-start',
+            // alignItems: 'flex-start',
+            // top: 70,
             left: 10,
             right: 10,
             backgroundColor: 'transparent',

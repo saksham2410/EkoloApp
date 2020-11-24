@@ -96,7 +96,7 @@ const Comp = () => {
               <View style={{...styles.greenDot}} />
               <View style={{...styles.inputText}}>
                 <Text>Pickup location?</Text>
-                {/* <Search /> */}
+                <Search />
               </View>
             </View>
             <View>
