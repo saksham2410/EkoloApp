@@ -8,10 +8,8 @@ import MapView from 'react-native-maps';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-
-
 const HomeScreen = (props) => {
-  //   const {navigation} = props;
+  const {navigation} = props;
   const [selectedCategory, setselectedCategory] = useState(1);
   const alertItemName = (item) => {
     console.log('home', item);
@@ -21,24 +19,16 @@ const HomeScreen = (props) => {
         return console.log('1');
       case '2':
         return console.log('2');
+      case '3':
+        return console.log('3');
+      default:
+        return console.log('1');
     }
   };
-  function MapScreen() {
-    return (
-      <View style={{flex: 1}}>
-        <Map optionSelect={(item) => alertItemName(item)} />
-      </View>
-    );
-  }
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="map" component={MapScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={{flex:1}}>
+      <Map optionSelect={(item) => alertItemName(item)} />
+    </View>
   );
 };
 

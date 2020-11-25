@@ -49,8 +49,10 @@ const Map = (props) => {
   const [duration, setDuration] = useState(null);
   const [location, setLocation] = useState(null);
   const [pickup, setPickup] = useState(null);
+  const [currentLocation, setcurrentLocation] = useState(null);
   const [focusPickup, setfocusPickup] = useState(false);
   const [focusDrop, setfocusDrop] = useState(false);
+  const [hasrideStarted, sethasrideStarted] = useState(false);
   const {navigation, optionSelect} = props;
 
   const map = useRef(null);
@@ -73,7 +75,8 @@ const Map = (props) => {
         async (info) => {
           // console.log(info);
           let latitude = info.coords.latitude;
-
+          //       latitude: 26.841762841620753,
+          // longitude: 75.76300621032716,
           let longitude = info.coords.longitude;
           const response = await Geocoder.from({latitude, longitude});
           const address = response.results[0].formatted_address;
@@ -99,15 +102,43 @@ const Map = (props) => {
           maximumAge: 1000,
         },
       );
+      Geolocation.watchPosition(
+        async (info) => {
+          // console.log(info);
+          let latitude = info.coords.latitude;
+          //       latitude: 26.841762841620753,
+          // longitude: 75.76300621032716,
+          let longitude = info.coords.longitude;
+          const newCoordinate = {
+            latitude,
+            longitude,
+            latitudeDelta: 0.009,
+            longitudeDelta: 0.009 * ASPECT_RATIO,
+          };
+          // const response = await Geocoder.from({latitude, longitude});
+          // const address = response.results[0].formatted_address;
+          // const location = address.substring(0, address.indexOf(','));
+          // setcurrentLocation(newCoordinate);
+          if (hasrideStarted) map.current.animateToRegion(newCoordinate);
+          console.log(newCoordinate, hasrideStarted);
+        }, //sucesso
+        () => {}, //erro
+        {
+          enableHighAccuracy: true,
+          timeout: 20000,
+          maximumAge: 1000,
+          distanceFilter: 50,
+        },
+      );
     }
 
     fetchMyAPI();
   }, []);
   const handleLocationSelectedPickup = (data, {geometry}) => {
     setfocusPickup(false);
-    const {
-      location: {lat: latitude, lng: longitude},
-    } = geometry;
+    // const {
+    //   location: {lat: latitude, lng: longitude},
+    // } = geometry;
     setPickup({
       latitude,
       longitude,
@@ -120,6 +151,10 @@ const Map = (props) => {
     map.current && map.current.animateToRegion(pickup);
     // ref.current?.animateToRegion(pickup);
   }, [pickup]);
+  // useEffect(() => {
+  //   map.current && map.current.animateToRegion(currentLocation);
+  //   // ref.current?.animateToRegion(pickup);
+  // }, [currentLocation]);
   // useEffect(() => {
   //   console.log(focusPickup);
   // }, [focusPickup]);
@@ -249,6 +284,7 @@ const Map = (props) => {
               marginTop: -48,
               position: 'absolute',
               top: '50%',
+              display: hasrideStarted ? 'none' : 'flex',
             }}>
             <Image style={{height: 48, width: 48}} source={marker} />
           </View>
@@ -283,7 +319,8 @@ const Map = (props) => {
               display: destination ? 'none' : 'flex',
             }}
             onPress={() => {
-              navigation.openDrawer();
+              // navigation.openDrawer();
+              sethasrideStarted(false);
             }}
           />
         </View>
@@ -297,7 +334,7 @@ const Map = (props) => {
         // ref={(c) => (this._panel = c)}
         draggableRange={{
           top: destination ? 0 : focusDrop ? SCREEN_HEIGHT : SCREEN_HEIGHT,
-          bottom: destination ? 0 : focusDrop ? (SCREEN_HEIGHT ) / 2 : 200,
+          bottom: destination ? 0 : focusDrop ? SCREEN_HEIGHT / 2 : 200,
         }}
         onDragEnd={(value, gestureState) => {
           console.log(value, gestureState);
