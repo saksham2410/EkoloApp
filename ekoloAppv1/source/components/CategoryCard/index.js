@@ -28,15 +28,16 @@ export default CateGoryCard;
 
 const styles = StyleSheet.create({
   upperCard: {
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     flexDirection: 'row',
     paddingTop: 15,
     padding: 5,
-    marginHorizontal: 40,
+    marginHorizontal: 10,
     borderColor: '#efefef',
+    // borderColor: 'black',
     borderWidth: 1,
-    borderRadius: 20,
-    // marginTop: 5,
+    borderRadius: 10,
+    marginTop: 5,
     // flexDirection: 'row'
     // zIndex: -100
   },

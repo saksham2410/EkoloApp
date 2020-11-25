@@ -40,7 +40,7 @@ import {
   State,
 } from 'react-native-gesture-handler';
 // import mapStyle from './style'
-import SecondComp from '../SecondTest/index';
+// import SecondComp from '../SecondTest/index';
 
 const Comp = () => {
   // useEffect(() => {
@@ -117,7 +117,7 @@ const Comp = () => {
         animatedValue={this._draggedValue}
         showBackdrop={false}>
           <SafeAreaView style={styles.panel}>
-          <SecondComp />
+          {/* <SecondComp /> */}
         </SafeAreaView>
       </SlidingUpPanel>
     </View>

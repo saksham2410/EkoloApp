@@ -24,7 +24,7 @@ import backImage from '../../assets/back.png';
 import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
 import SlidingUpPanel from 'rn-sliding-up-panel';
-import SecondComp from '../../components/SecondTest/index';
+import SliderScreen from '../SliderScreen/index';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import mapStyle from './mapstyle';
 
@@ -297,7 +297,7 @@ const Map = (props) => {
         // ref={(c) => (this._panel = c)}
         draggableRange={{
           top: destination ? 0 : focusDrop ? SCREEN_HEIGHT : SCREEN_HEIGHT,
-          bottom: destination ? 0 : focusDrop ? (SCREEN_HEIGHT * 4) / 5 : 200,
+          bottom: destination ? 0 : focusDrop ? (SCREEN_HEIGHT ) / 2 : 200,
         }}
         onDragEnd={(value, gestureState) => {
           console.log(value, gestureState);
@@ -321,7 +321,7 @@ const Map = (props) => {
             backgroundColor: 'white',
             position: 'relative',
           }}>
-          <SecondComp
+          <SliderScreen
             onLocationSelected={handleLocationSelectedDrop}
             dropFocus={handleDropFocus}
             optionSelect={optionSelect}

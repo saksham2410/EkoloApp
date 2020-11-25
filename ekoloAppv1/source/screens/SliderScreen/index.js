@@ -7,7 +7,7 @@ import {
   Image,
   Button,
 } from 'react-native';
-import Search from '../Search2/index';
+import Search from '../../components/Search2/index';
 import Geolocation from '@react-native-community/geolocation';
 import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
@@ -17,7 +17,7 @@ import RecentPlaces from '../../components/RecentPlaces';
 import FavoritePlaces from '../../components/FavoritePlaces';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-const SecondComp = (props) => {
+const SliderScreen = (props) => {
   const {onLocationSelected, type, dropFocus, optionSelect} = props;
 
   const ref = useCallback((node) => {
@@ -77,7 +77,7 @@ const SecondComp = (props) => {
         </View>
       </SafeAreaView>
       <SafeAreaView style={styles.contentWrapper}>
-        <FavoritePlaces />
+        {/* <FavoritePlaces /> */}
         <RecentPlaces />
       </SafeAreaView>
     </View>
@@ -177,4 +177,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SecondComp;
+export default SliderScreen;
