@@ -1,4 +1,4 @@
-import React, {useEffect, Fragment, useState, useRef} from 'react';
+import React, {useEffect, Fragment, useState, useRef, useCallback} from 'react';
 import {
   View,
   Image,
@@ -51,9 +51,14 @@ const Map = (props) => {
   const [pickup, setPickup] = useState(null);
   const [focusPickup, setfocusPickup] = useState(false);
   const [focusDrop, setfocusDrop] = useState(false);
-  const {navigation} = props;
+  const {navigation, optionSelect} = props;
 
   const map = useRef(null);
+  const ref4 = useCallback((node) => {
+    if (node !== null) {
+      console.log('ref2', node); // node = elRef.current
+    }
+  }, []);
   //   state = {
   //     region: null,
   //     destination: null,
@@ -170,7 +175,7 @@ const Map = (props) => {
             style={StyleSheet.absoluteFillObject}
             initialRegion={pickup}
             // region={pickup}
-            customMapStyle={mapStyle}
+            // customMapStyle={mapStyle}
             onRegionChangeComplete={(pickup) => {
               setRegion(pickup);
 
@@ -319,6 +324,7 @@ const Map = (props) => {
           <SecondComp
             onLocationSelected={handleLocationSelectedDrop}
             dropFocus={handleDropFocus}
+            optionSelect={optionSelect}
           />
         </SafeAreaView>
       </SlidingUpPanel>

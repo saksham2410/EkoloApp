@@ -70,7 +70,7 @@ export default [
       elementType: 'labels.text',
       stylers: [
         {
-          visibility: 'off',
+          visibility: 'on',
         },
       ],
     },
@@ -106,7 +106,7 @@ export default [
           color: '#dedede',
         },
         {
-          lightness: 21,
+          lightness: 5,
         },
       ],
     },
@@ -124,7 +124,7 @@ export default [
       elementType: 'labels.text',
       stylers: [
         {
-          visibility: 'off',
+          visibility: 'on',
         },
       ],
     },

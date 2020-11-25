@@ -7,43 +7,18 @@ import {
   Image,
   Button,
 } from 'react-native';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Search from '../Search2/index';
 import Geolocation from '@react-native-community/geolocation';
 import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
-import './data2';
-import './data3';
-import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import CateGoryCard from '../../components/CategoryCard';
+import RecentPlaces from '../../components/RecentPlaces';
+import FavoritePlaces from '../../components/FavoritePlaces';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
-import AnimatedPlaceholder from '../AnimatedPlaceholder/AnimatedPlaceholder';
-import OverlayBg from '../OverlayBg/OverlayBg';
-import SlidingUpPanel from 'rn-sliding-up-panel';
-import data2 from './data2';
-import data3 from './data3';
-import data from './data';
-import {ButtonGroup} from 'react-native-elements';
-// import mapStyle from './style'
-
 const SecondComp = (props) => {
-  const {onLocationSelected, type, dropFocus} = props;
-  const [region, setRegion] = useState({
-    latitude: 26.841762841620753,
-    longitude: 75.76300621032716,
-    latitudeDelta: 0.009,
-    longitudeDelta: 0.009 * ASPECT_RATIO,
-  });
-  const [isfocus, setisfocus] = useState(false);
-  // const yoyo = (val) => {
-  //   if (val === 'true' || val === 'false') setisfocus(val);
-  // };
-  // useEffect(() => {
-  //   dropFocus(isfocus);
-  //   console.log('secondtest',isfocus)
-  // }, [isfocus]);
+  const {onLocationSelected, type, dropFocus, optionSelect} = props;
 
   const ref = useCallback((node) => {
     if (node !== null) {
@@ -51,22 +26,6 @@ const SecondComp = (props) => {
       console.log('ref2', node.isFocused()); // node = elRef.current
     }
   }, []);
-  // const component1 = () => {
-  //   <View >
-  //     <MaterialCommunityIcons name='motorbike' size={24} />
-  //     <Text>Ride</Text>
-  //   </View>;
-  // };
-  // const component2 = () => {
-  //   <View >
-  //   <MaterialCommunityIcons name='motorbike' size={24} />
-  //   <Text>Ride</Text>
-  // </View>;
-  // }
-  // const component3 = () => <Text>ButtonGroup</Text>;
-  const onTouchKey = (val) => {
-    console.log('category', val);
-  };
 
   return (
     <View style={styles.container}>
@@ -74,19 +33,7 @@ const SecondComp = (props) => {
         <Fontisto name="arrow-left-l" size={24} style={{marginLeft: 10}} />
       </TouchableOpacity>
       <SafeAreaView>
-        <View style={styles.upperCard}>
-          {data.map((data) => {
-            return (
-              <TouchableOpacity
-                key={data.id}
-                style={styles.category}
-                onPress={(e) => console.log(e)}>
-                <MaterialCommunityIcons name={data.icon} size={24} />
-                <Text>{data.name}</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+        <CateGoryCard optionSelect={optionSelect} />
         <View style={styles.card}>
           {/* <View style={styles.drop}>
             <Text style={styles.dropText}>Drop Location?</Text>
@@ -129,48 +76,10 @@ const SecondComp = (props) => {
           </View>
         </View>
       </SafeAreaView>
-      <View style={styles.contentWrapper}>
-        <Text style={styles.bigTitle}>Favorite Places</Text>
-        <View style={{marginBottom: 20}}>
-          {data2.map((data) => {
-            return (
-              <View key={data.id} style={styles.favoriteWrapper}>
-                <View style={styles.favoriteWrapper2}>
-                  <Fontisto
-                    name="heart"
-                    size={18}
-                    style={{color: '#04dca0', marginRight: 10}}
-                  />
-                  <View>
-                    <Text style={styles.favoriteTitle}>{data.title}</Text>
-                    <Text style={styles.favoriteSubTitle}>{data.subtitle}</Text>
-                  </View>
-                </View>
-                <View>
-                  <Feather
-                    name="minus-circle"
-                    size={20}
-                    style={{color: '#ff909a'}}
-                  />
-                </View>
-              </View>
-            );
-          })}
-        </View>
-        <Text style={styles.bigTitle}>Recently Visited Places</Text>
-        {data3.map((data) => {
-          return (
-            <View key={data.id} style={styles.recentWrapper}>
-              <MaterialCommunityIcons
-                name="clock-time-five"
-                size={20}
-                style={{color: '#80828b', marginRight: 10}}
-              />
-              <Text style={styles.recentText}>{data.title}</Text>
-            </View>
-          );
-        })}
-      </View>
+      <SafeAreaView style={styles.contentWrapper}>
+        <FavoritePlaces />
+        <RecentPlaces />
+      </SafeAreaView>
     </View>
   );
 };
@@ -179,20 +88,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFF',
-  },
-  upperCard: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-
-    paddingTop: 15,
-    padding: 5,
-    // marginHorizontal: 10,
-    borderColor: '#efefef',
-    borderWidth: 1,
-    borderRadius: 20,
-    // marginTop: 5,
-    // flexDirection: 'row'
-    // zIndex: -100
   },
   category: {
     alignItems: 'center',
@@ -278,47 +173,6 @@ const styles = StyleSheet.create({
   contentWrapper: {
     paddingHorizontal: 20,
     marginTop: 40,
-    zIndex: -100,
-  },
-  bigTitle: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: '#404151',
-    marginBottom: 20,
-    zIndex: -100,
-  },
-  favoriteWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-    zIndex: -100,
-  },
-  favoriteWrapper2: {
-    flexDirection: 'row',
-    zIndex: -100,
-  },
-  favoriteTitle: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#555664',
-    marginBottom: 5,
-    zIndex: -100,
-  },
-  favoriteSubTitle: {
-    color: '#a9abb8',
-    zIndex: -100,
-  },
-  recentWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-    zIndex: -100,
-  },
-  recentText: {
-    fontWeight: '500',
-    fontSize: 14,
-    color: '#80828b',
     zIndex: -100,
   },
 });
