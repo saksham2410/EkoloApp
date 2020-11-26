@@ -6,7 +6,7 @@ import Map from '../MapView/index';
 import RentalScreen from '../RentalScreen/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {createStackNavigator} from '@react-navigation/stack';
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
 
 function HomeScreen() {
   return (
@@ -26,31 +26,31 @@ function SettingsScreen() {
 
 const Tab = createBottomTabNavigator();
 
-const navOptionHandler = (navigation) => ({
-    header:null
-})
+// const navOptionHandler = (navigation) => ({
+//     header:null
+// })
 
-const MapStack = createStackNavigator({
-    RideView: {
-        screen: RideView,
-        navigationOptions: navOptionHandler
-    },
-    TrackView: {
-        screen: TrackView,
-        navigationOptions: navOptionHandler
-    }
-})
+// const MapStack = createStackNavigator({
+//     RideView: {
+//         screen: RideView,
+//         navigationOptions: navOptionHandler
+//     },
+//     TrackView: {
+//         screen: TrackView,
+//         navigationOptions: navOptionHandler
+//     }
+// })
 
-const RentalStack = createStackNavigator({
-    RentalView: {
-        screen: RentalView,
-        navigationOptions: navOptionHandler
-    },
-    BookingView: {
-        screen: BoookingView,
-        navigationOptions: navOptionHandler
-    }
-})
+// const RentalStack = createStackNavigator({
+//     RentalView: {
+//         screen: RentalView,
+//         navigationOptions: navOptionHandler
+//     },
+//     BookingView: {
+//         screen: BoookingView,
+//         navigationOptions: navOptionHandler
+//     }
+// })
 
 export default function App2() {
   return (
