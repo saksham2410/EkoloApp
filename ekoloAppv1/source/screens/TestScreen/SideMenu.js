@@ -64,7 +64,7 @@ const SideMenu = (props) => {
             )}
             label="Profile"
             onPress={() => {
-              props.navigation.navigate('Profile');
+              props.navigation.navigate('Rental');
             }}
           />
           <DrawerItem
@@ -76,7 +76,7 @@ const SideMenu = (props) => {
             )}
             label="Wallet"
             onPress={() => {
-              props.navigation.navigate('wallet');
+              props.navigation.navigate('Home');
             }}
           />
           <DrawerItem
@@ -88,7 +88,7 @@ const SideMenu = (props) => {
             )}
             label="Settings"
             onPress={() => {
-              props.navigation.navigate('Settings');
+              props.navigation.navigate('Rental');
             }}
           />
           <DrawerItem
@@ -100,7 +100,7 @@ const SideMenu = (props) => {
             )}
             label="Support"
             onPress={() => {
-              props.navigation.navigate('Support');
+              props.navigation.navigate('Home');
             }}
           />
         </Drawer.Section>

@@ -43,7 +43,7 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator drawerContent={ props => <SideMenu {...props} /> }>
       <Drawer.Screen name="Home" component={BottomTabNavigator} />
-      <Drawer.Screen name="Other" component={RentalScreen} />
+      <Drawer.Screen name="Rental" component={RentalScreen} />
     </Drawer.Navigator>
   );
 };
