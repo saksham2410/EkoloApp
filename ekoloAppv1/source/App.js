@@ -23,7 +23,7 @@ import {
   TapGestureHandler,
   State,
 } from 'react-native-gesture-handler';
-import {Icon} from 'react-native-elements';
+// import {Icon} from 'react-native-elements';
 import OverlayBg from './components/OverlayBg/OverlayBg';
 import HeaderBackArrow from './components/HeaderBackArrow/HeaderBackArrow';
 import ForwardArrow from './components/ForwardArrow/ForwardArrow';

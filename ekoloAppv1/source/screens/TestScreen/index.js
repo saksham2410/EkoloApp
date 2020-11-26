@@ -3,12 +3,14 @@ import {Text, View, Dimensions} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Map from '../MapView/index';
+import YourRide from '../RideComplete/index'
 import RentalScreen from '../RentalScreen/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {store} from '../../store/store';
+import SideMenu from './SideMenu'
 const Drawer = createDrawerNavigator();
 function HomeScreen() {
   return (
@@ -39,7 +41,7 @@ const MainStackNavigator = () => {
 };
 const DrawerNavigator = () => {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator drawerContent={ props => <SideMenu {...props} /> }>
       <Drawer.Screen name="Home" component={BottomTabNavigator} />
       <Drawer.Screen name="Other" component={RentalScreen} />
     </Drawer.Navigator>
