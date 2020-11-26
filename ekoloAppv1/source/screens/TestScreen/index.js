@@ -6,12 +6,14 @@ import Map from '../MapView/index';
 import RentalScreen from '../RentalScreen/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Provider} from 'react-redux';
+import {store} from '../../store/store';
 // const Drawer = createDrawerNavigator();
 
 function HomeScreen() {
   return (
     <View style={{flex: 1}}>
-      <Map />
+      <Counter />
     </View>
   );
 }
@@ -54,36 +56,38 @@ const Tab = createBottomTabNavigator();
 
 export default function App2() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
-            let iconName;
-            size=30
+    <Provider store={store}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({route}) => ({
+            tabBarIcon: ({focused, color, size}) => {
+              let iconName;
+              size = 30;
 
-            if (route.name === 'Ride') {
-              iconName = 'motorbike';
-            } else if (route.name === 'Rent') {
-              iconName = 'alarm';
-            }
+              if (route.name === 'Ride') {
+                iconName = 'motorbike';
+              } else if (route.name === 'Rent') {
+                iconName = 'alarm';
+              }
 
-            // You can return any component that you like here!
-            return (
-              <MaterialCommunityIcons
-                name={iconName}
-                size={size}
-                color={color}
-              />
-            );
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: '#32a852',
-          inactiveTintColor: '#000000',
-        }}>
-        <Tab.Screen name="Ride" component={HomeScreen} />
-        <Tab.Screen name="Rent" component={SettingsScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+              // You can return any component that you like here!
+              return (
+                <MaterialCommunityIcons
+                  name={iconName}
+                  size={size}
+                  color={color}
+                />
+              );
+            },
+          })}
+          tabBarOptions={{
+            activeTintColor: '#32a852',
+            inactiveTintColor: '#000000',
+          }}>
+          <Tab.Screen name="Ride" component={Map} />
+          <Tab.Screen name="Rent" component={RentalScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }

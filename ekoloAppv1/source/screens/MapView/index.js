@@ -29,6 +29,13 @@ import SliderScreen from '../SliderScreen/index';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import mapStyle from './mapstyle';
 import Loader from './loader';
+import {useSelector, useDispatch} from 'react-redux';
+import {
+  getReduxDrop,
+  getReduxPickup,
+  setReduxDrop,
+  setReduxPickup,
+} from '../../store/actions';
 
 import {NavigationContainer} from '@react-navigation/native';
 
@@ -60,6 +67,10 @@ const Map = (props) => {
   const [hasrideStarted, sethasrideStarted] = useState(false);
   const {navigation, optionSelect} = props;
 
+  const pickupdata = useSelector((state) => state.pickup);
+  const dropdata = useSelector((state) => state.drop);
+  const dispatch = useDispatch();
+
   const map = useRef(null);
   const ref4 = useCallback((node) => {
     if (node !== null) {
@@ -75,9 +86,9 @@ const Map = (props) => {
           //       latitude: 26.841762841620753,
           // longitude: 75.76300621032716,
           let longitude = info.coords.longitude;
-          const response = await Geocoder.from({latitude, longitude});
-          const address = response.results[0].formatted_address;
-          const location = address.substring(0, address.indexOf(','));
+          // const response = await Geocoder.from({latitude, longitude});
+          // const address = response.results[0].formatted_address;
+          // const location = address.substring(0, address.indexOf(','));
           setLocation(location);
           setRegion({
             latitude,
@@ -125,6 +136,9 @@ const Map = (props) => {
     fetchMyAPI();
   }, []);
   const handleLocationSelectedPickup = (data, {geometry}) => {
+    const {
+      location: {lat: latitude, lng: longitude},
+    } = geometry;
     setfocusPickup(false);
     setPickup({
       latitude,
@@ -135,15 +149,26 @@ const Map = (props) => {
     });
   };
   useEffect(() => {
-    if (pickup != null) {map.current && map.current.animateToRegion(pickup);
-    setLoading(false)}
+    if (pickup != null) {
+      let {latitude, longitude} = pickup;
+      dispatch(
+        setReduxPickup({
+          latitude,
+          longitude,
+          latitudeDelta: 0.009,
+          longitudeDelta: 0.009 * ASPECT_RATIO,
+        }),
+      );
+      map.current && map.current.animateToRegion(pickup);
+      setLoading(false);
+    }
+    // }
   }, [pickup]);
 
   const handleLocationSelectedDrop = (data, {geometry}) => {
     const {
       location: {lat: latitude, lng: longitude},
     } = geometry;
-
     setDestination({
       latitude,
       longitude,
@@ -158,7 +183,6 @@ const Map = (props) => {
   const handlePickupFocus = (val) => {
     if (val != null) {
       setfocusPickup(val);
-      // console.log(val);
     }
   };
   const handleDropFocus = (val) => {
