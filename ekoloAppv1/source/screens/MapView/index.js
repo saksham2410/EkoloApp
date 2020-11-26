@@ -59,7 +59,7 @@ const Map = (props) => {
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState(null);
   const [pickup, setPickup] = useState(null);
-  const [pickupAddress, setPickupAddress] = useState('Location');
+  const [pickupAddress, setPickupAddress] = useState('Pickup Location?');
   const [dropAddress, setdropAddress] = useState('Drop Location?');
   const [currentLocation, setcurrentLocation] = useState(null);
   const [focusPickup, setfocusPickup] = useState(false);
@@ -68,7 +68,6 @@ const Map = (props) => {
   const {navigation, optionSelect} = props;
 
   const pickupdata = useSelector((state) => state.pickup);
-  const dropdata = useSelector((state) => state.drop);
   const dispatch = useDispatch();
 
   const map = useRef(null);
@@ -86,10 +85,13 @@ const Map = (props) => {
           //       latitude: 26.841762841620753,
           // longitude: 75.76300621032716,
           let longitude = info.coords.longitude;
-          // const response = await Geocoder.from({latitude, longitude});
-          // const address = response.results[0].formatted_address;
-          // const location = address.substring(0, address.indexOf(','));
-          setLocation(location);
+
+          const response = await Geocoder.from({latitude, longitude});
+          const address = response.results[0].formatted_address;
+          const location = address.split(',');
+          setLocation(location[2] + ',' + location[3]);
+          setPickupAddress(location[2] + ',' + location[3]);
+
           setRegion({
             latitude,
             longitude,
@@ -192,15 +194,43 @@ const Map = (props) => {
       console.log('main2', val);
     }
   };
-  const handleRegionChange = async (pickup) => {
-    let latitude = pickup.latitude;
-    let longitude = pickup.longitude;
-    setRegion(pickup);
-    let response = await Geocoder.from({latitude, longitude});
-    let address = response.results[0].formatted_address;
-    let location = address.split(',');
-    console.log(location[1]);
-    setPickupAddress(location[1]);
+  function calcCrow(lat1, lon1, lat2, lon2) {
+    var R = 6371; // km
+    var dLat = toRad(lat2 - lat1);
+    var dLon = toRad(lon2 - lon1);
+    var lat1 = toRad(lat1);
+    var lat2 = toRad(lat2);
+
+    var a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * c;
+    return d;
+  }
+  function toRad(Value) {
+    return (Value * Math.PI) / 180;
+  }
+  const handleRegionChange = async (newpickup) => {
+    if (newpickup != null && pickup != null) {
+      let latitude = newpickup.latitude;
+      let longitude = newpickup.longitude;
+      const res = calcCrow(
+        pickup.latitude,
+        pickup.longitude,
+        latitude,
+        longitude,
+      );
+      console.log(res);
+      setRegion(newpickup);
+      if (res > 0.5) {
+        let response = await Geocoder.from({latitude, longitude});
+        let address = response.results[0].formatted_address;
+        let location = address.split(',');
+        console.log(location[3]);
+        setPickupAddress(location[2] + ',' + location[3]);
+      }
+    }
   };
 
   return (

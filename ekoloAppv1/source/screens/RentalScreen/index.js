@@ -4,8 +4,9 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import CateGoryCard from '../../components/CategoryCard';
 import RentalDatePicker from '../../components/RentalDatePicker';
 import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
+import Feather from 'react-native-vector-icons/Feather';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
-const RentalScreen = () => {
+const RentalScreen = (props) => {
   const state = {date: '2016-05-15'};
   const [date, setDate] = useState(new Date(1598051730000));
   const handlestartDate = (val) => {
@@ -17,6 +18,7 @@ const RentalScreen = () => {
     // setDate(currentDate);
     console.log('here', currentDate);
   };
+  const {navigation} = props;
   const onChangeDrop = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     // setShow(Platform.OS === 'ios');
@@ -25,6 +27,19 @@ const RentalScreen = () => {
   };
   return (
     <View style={styles.container}>
+      <Feather
+        name="menu"
+        size={35}
+        style={{
+          marginLeft: 20,
+          top: 10,
+          display: 'flex',
+        }}
+        onPress={() => {
+          navigation.openDrawer();
+          // sethasrideStarted(false);
+        }}
+      />
       {/* <CateGoryCard optionSelect={(item) => console.log(item)} /> */}
       <Image
         source={require('../../assets/scooter.png')}
@@ -35,7 +50,7 @@ const RentalScreen = () => {
         <View style={{marginTop: 40}}>
           <RentalDatePicker type="Pickup" timeValue={onChangePickup} />
         </View>
-        <View style={{marginTop:40}}>
+        <View style={{marginTop: 40}}>
           <RentalDatePicker type="DropOff" timeValue={onChangeDrop} />
         </View>
       </View>
@@ -60,7 +75,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#009688',
     borderRadius: 10,
     margin: 20,
-    marginTop:50,
+    marginTop: 50,
     paddingVertical: 10,
     paddingHorizontal: 12,
   },
