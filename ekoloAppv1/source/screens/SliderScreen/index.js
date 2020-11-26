@@ -33,7 +33,7 @@ const SliderScreen = (props) => {
         <Fontisto name="arrow-left-l" size={24} style={{marginLeft: 10}} />
       </TouchableOpacity>
       <SafeAreaView>
-        <CateGoryCard optionSelect={optionSelect} />
+        {/* <CateGoryCard optionSelect={optionSelect} /> */}
         <View style={styles.card}>
           {/* <View style={styles.drop}>
             <Text style={styles.dropText}>Drop Location?</Text>

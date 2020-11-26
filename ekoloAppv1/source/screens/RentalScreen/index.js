@@ -25,17 +25,17 @@ const RentalScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <CateGoryCard optionSelect={(item) => console.log(item)} />
+      {/* <CateGoryCard optionSelect={(item) => console.log(item)} /> */}
       <Image
         source={require('../../assets/scooter.png')}
-        style={{width: 150, height: 150, alignSelf: 'center', marginTop: 20}}
+        style={{width: 150, height: 150, alignSelf: 'center', marginTop: 40}}
       />
 
       <View>
-        <View>
+        <View style={{marginTop: 40}}>
           <RentalDatePicker type="Pickup" timeValue={onChangePickup} />
         </View>
-        <View>
+        <View style={{marginTop:40}}>
           <RentalDatePicker type="DropOff" timeValue={onChangeDrop} />
         </View>
       </View>
@@ -60,10 +60,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#009688',
     borderRadius: 10,
     margin: 20,
+    marginTop:50,
     paddingVertical: 10,
     paddingHorizontal: 12,
   },
   appButtonText: {
+    // marginTop:
     fontSize: 18,
     color: '#fff',
     fontWeight: 'bold',

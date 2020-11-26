@@ -281,7 +281,7 @@ const Map = (props) => {
             style={{
               left: '50%',
               marginLeft: -24,
-              marginTop: -48,
+              marginTop: -21,
               position: 'absolute',
               top: '50%',
               display: hasrideStarted ? 'none' : 'flex',
@@ -319,8 +319,8 @@ const Map = (props) => {
               display: destination ? 'none' : 'flex',
             }}
             onPress={() => {
-              // navigation.openDrawer();
-              sethasrideStarted(false);
+              navigation.openDrawer();
+              // sethasrideStarted(false);
             }}
           />
         </View>
@@ -333,8 +333,8 @@ const Map = (props) => {
         style={{zIndex: 1000000}}
         // ref={(c) => (this._panel = c)}
         draggableRange={{
-          top: destination ? 0 : focusDrop ? SCREEN_HEIGHT : SCREEN_HEIGHT,
-          bottom: destination ? 0 : focusDrop ? SCREEN_HEIGHT / 2 : 200,
+          top: destination ? 0 : focusDrop ? 10*SCREEN_HEIGHT/11 :10*SCREEN_HEIGHT/11,
+          bottom: destination ? 0 : focusDrop ? SCREEN_HEIGHT / 2 : 140,
         }}
         onDragEnd={(value, gestureState) => {
           console.log(value, gestureState);
