@@ -7,7 +7,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import Geolocation from '@react-native-community/geolocation';
 
-const Search = React.forwardRef((props,ref) => {
+const Search = React.forwardRef((props, ref) => {
   //   state = {
   //     searchFocused: false,
   //   };
@@ -20,7 +20,11 @@ const Search = React.forwardRef((props,ref) => {
   // }, [dropFocused]);
 
   // const {searchFocused} = this.state;
-  const {onLocationSelected, type, dropFocus} = props;
+  const {onLocationSelected, type, dropFocus, dropAddress} = props;
+  console.log('drop', dropAddress);
+  useEffect(() => {
+    ref.current?.setAddressText(dropAddress);
+  }, []);
   // const ref = useCallback((node) => {
   //   if (node !== null) {
   //     props.dropFocus(node.isFocused())
@@ -42,7 +46,7 @@ const Search = React.forwardRef((props,ref) => {
       <View />
       <GooglePlacesAutocomplete
         ref={ref}
-        placeholder={type === 'pickup' ? 'Pickup Location?' : 'Drop Location?'}
+        placeholder={dropAddress}
         // onPress={(data, details) => {
         //   // 'details' is provided when fetchDetails = true
         //   console.log(data, details);

@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Image,
   Button,
+  TextInput,
 } from 'react-native';
 import Search from '../../components/Search2/index';
 import Geolocation from '@react-native-community/geolocation';
@@ -18,11 +19,18 @@ import FavoritePlaces from '../../components/FavoritePlaces';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 const SliderScreen = (props) => {
-  const {onLocationSelected, type, dropFocus, optionSelect} = props;
+  const {
+    onLocationSelected,
+    type,
+    dropFocus,
+    optionSelect,
+    dropAddress,
+  } = props;
 
   const ref = useCallback((node) => {
     if (node !== null) {
       props.dropFocus(node.isFocused());
+      // props.setAddress(node.setAddressText())
       console.log('ref2', node.isFocused()); // node = elRef.current
     }
   }, []);
@@ -32,8 +40,19 @@ const SliderScreen = (props) => {
       <TouchableOpacity style={{display: 'none'}}>
         <Fontisto name="arrow-left-l" size={24} style={{marginLeft: 10}} />
       </TouchableOpacity>
+
       <SafeAreaView>
         {/* <CateGoryCard optionSelect={optionSelect} /> */}
+        {/* <View style={styles.upperCard}>
+          <View style={styles.search}>
+            <View style={styles.inputWrapper}>
+              <TextInput
+                placeholder="Where are you going?"
+                placeholderTextColor="#afb1b6"
+              />
+            </View>
+          </View>
+        </View> */}
         <View style={styles.card}>
           {/* <View style={styles.drop}>
             <Text style={styles.dropText}>Drop Location?</Text>
@@ -44,21 +63,10 @@ const SliderScreen = (props) => {
               onLocationSelected={onLocationSelected}
               style={styles.search2}
               ref={ref}
+              dropAddress={dropAddress}
             />
           </SafeAreaView>
 
-          {/* <View style={styles.search}>
-            <View style={styles.inputWrapper}>
-              <View style={styles.pinkDot} />
-              <TextInput
-                placeholder="Where are you going?"
-                placeholderTextColor="#afb1b6"
-              />
-            </View>
-            <View>
-              <Feather name="heart" size={24} />
-            </View>
-          </View> */}
           <View style={styles.bottomCard}>
             <TouchableOpacity style={styles.bottomCardPin}>
               <Fontisto
@@ -94,6 +102,25 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     marginRight: 40,
   },
+  card1: {
+    margin: 20,
+    zIndex: 1,
+  },
+  upperCard: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    paddingTop: 15,
+    padding: 5,
+    marginHorizontal: 10,
+    borderColor: '#efefef',
+    width: '100%',
+    // borderColor: 'black',
+    // borderWidth: 1,
+    // borderRadius: 10,
+    marginTop: 5,
+    // flexDirection: 'row'
+    // zIndex: -100
+  },
   card: {
     // paddingTop: 15,
     paddingBottom: 5,
@@ -115,18 +142,6 @@ const styles = StyleSheet.create({
     color: 'black',
     zIndex: -100,
   },
-  search: {
-    marginVertical: 15,
-    padding: 10,
-    backgroundColor: '#fff',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderRadius: 5,
-    borderColor: '#efeff0',
-    borderWidth: 2,
-    zIndex: -100,
-  },
   search2: {
     padding: 0,
     top: 15,
@@ -135,7 +150,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    zIndex: -100,
+    // zIndex: -100,
   },
   pinkDot: {
     width: 10,

@@ -7,7 +7,12 @@ import Feather from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation';
 
 const Search = (props) => {
-  const {onLocationSelected, type, pickupFocus, childFocus} = props;
+  const {
+    onLocationSelected,
+    pickupFocus,
+    childFocus,
+    displayText,
+  } = props;
 
   //   state = {
   //     searchFocused: false,
@@ -49,7 +54,10 @@ const Search = (props) => {
       <View />
       <GooglePlacesAutocomplete
         ref={ref}
-        placeholder={type === 'pickup' ? 'Pickup Location?' : 'Drop Location?'}
+        placeholder={displayText == 'Location'
+            ? 'Pickup Location?'
+            : displayText
+        }
         onPress={onLocationSelected}
         query={{
           key: 'AIzaSyB_bXhFmnZbLk9qSl3z8-1Np2QxZLbMSsY',
@@ -104,10 +112,7 @@ const Search = (props) => {
         styles={{
           container: {
             position: 'absolute',
-            top:
-              type === 'pickup'
-                ? Platform.select({ios: 50, android: 30})
-                : Platform.select({ios: 110, android: 90}),
+            top: Platform.select({ios: 50, android: 30}),
             width: '100%',
             // height: '100%',
             // shadowRadius: 150,
