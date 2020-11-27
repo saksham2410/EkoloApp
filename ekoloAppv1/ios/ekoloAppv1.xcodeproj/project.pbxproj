@@ -11,15 +11,15 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		226FBEFF3614C811DC9C815A /* libPods-ekoloAppv1-ekoloAppv1Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19B22C0822B4D663B2DD3A0 /* libPods-ekoloAppv1-ekoloAppv1Tests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ekoloAppv1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ekoloAppv1Tests.m */; };
-		34981C7A9556D599A0181C96 /* libPods-ekoloAppv1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C68068FCD427341231F221E /* libPods-ekoloAppv1.a */; };
-		62EBD3EC263151830A0C9378 /* libPods-ekoloAppv1-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 829AE96DC3C7414A532B879E /* libPods-ekoloAppv1-tvOS.a */; };
+		5888D7CF3A26DCE69CF3C6E9 /* libPods-ekoloAppv1-ekoloAppv1Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B36FE37C3C834A6EB76FB305 /* libPods-ekoloAppv1-ekoloAppv1Tests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		D15FD02A245F89F2F8C50EB2 /* libPods-ekoloAppv1-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7D1D5C6C6758A788742F8E /* libPods-ekoloAppv1-tvOSTests.a */; };
+		89EE7B7F59F8713444AB488B /* libPods-ekoloAppv1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4F3301EE1A89AC320ABE26 /* libPods-ekoloAppv1.a */; };
+		CEF149C891D2834EFCACF110 /* libPods-ekoloAppv1-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA12347234218E60921B069 /* libPods-ekoloAppv1-tvOSTests.a */; };
+		D268379BC718B1649C859536 /* libPods-ekoloAppv1-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC51A813F0A4233C42E92FE3 /* libPods-ekoloAppv1-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,29 +44,29 @@
 		00E356EE1AD99517003FC87E /* ekoloAppv1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ekoloAppv1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ekoloAppv1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ekoloAppv1Tests.m; sourceTree = "<group>"; };
-		0AD1AB7CC2179155AC138165 /* Pods-ekoloAppv1-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOS/Pods-ekoloAppv1-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ekoloAppv1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ekoloAppv1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ekoloAppv1/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ekoloAppv1/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ekoloAppv1/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ekoloAppv1/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ekoloAppv1/main.m; sourceTree = "<group>"; };
-		1434893277BB1F6A52378302 /* Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig"; sourceTree = "<group>"; };
-		1AA6CD43CDB7B22981DE7D9F /* Pods-ekoloAppv1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1/Pods-ekoloAppv1.debug.xcconfig"; sourceTree = "<group>"; };
+		261D2E1EE7C8554807D9C4B8 /* Pods-ekoloAppv1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1/Pods-ekoloAppv1.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ekoloAppv1-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ekoloAppv1-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ekoloAppv1-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ekoloAppv1-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C68068FCD427341231F221E /* libPods-ekoloAppv1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6127E259A6590D890FEA1777 /* Pods-ekoloAppv1-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOS/Pods-ekoloAppv1-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		73640EA8A080E1CE9AE2B389 /* Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		39773DB3A16D27402812A3D0 /* Pods-ekoloAppv1-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOS/Pods-ekoloAppv1-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		46D3802F34C6BDEEF7F7FFB2 /* Pods-ekoloAppv1-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOSTests/Pods-ekoloAppv1-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		54CB445C06E6FA4CA256824C /* Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E4F3301EE1A89AC320ABE26 /* libPods-ekoloAppv1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA12347234218E60921B069 /* libPods-ekoloAppv1-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A6AF789334CEFDE3D74FF15 /* Pods-ekoloAppv1-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOS/Pods-ekoloAppv1-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ekoloAppv1/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		829AE96DC3C7414A532B879E /* libPods-ekoloAppv1-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		878FE215E00B7B12953A8F72 /* Pods-ekoloAppv1-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOSTests/Pods-ekoloAppv1-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8C683FD3DB7C8FA581B49735 /* Pods-ekoloAppv1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1/Pods-ekoloAppv1.release.xcconfig"; sourceTree = "<group>"; };
-		949ADA523DFE879521F30537 /* Pods-ekoloAppv1-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOSTests/Pods-ekoloAppv1-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		AE7D1D5C6C6758A788742F8E /* libPods-ekoloAppv1-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E19B22C0822B4D663B2DD3A0 /* libPods-ekoloAppv1-ekoloAppv1Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1-ekoloAppv1Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A089F87C53E3C5AF6707F076 /* Pods-ekoloAppv1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1/Pods-ekoloAppv1.release.xcconfig"; sourceTree = "<group>"; };
+		A3E1E0A241C013F111D57BB9 /* Pods-ekoloAppv1-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-tvOSTests/Pods-ekoloAppv1-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC51A813F0A4233C42E92FE3 /* libPods-ekoloAppv1-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36FE37C3C834A6EB76FB305 /* libPods-ekoloAppv1-ekoloAppv1Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ekoloAppv1-ekoloAppv1Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F59F2F8F0AEC77D9E5D55753 /* Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig"; path = "Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				226FBEFF3614C811DC9C815A /* libPods-ekoloAppv1-ekoloAppv1Tests.a in Frameworks */,
+				5888D7CF3A26DCE69CF3C6E9 /* libPods-ekoloAppv1-ekoloAppv1Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34981C7A9556D599A0181C96 /* libPods-ekoloAppv1.a in Frameworks */,
+				89EE7B7F59F8713444AB488B /* libPods-ekoloAppv1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62EBD3EC263151830A0C9378 /* libPods-ekoloAppv1-tvOS.a in Frameworks */,
+				D268379BC718B1649C859536 /* libPods-ekoloAppv1-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D15FD02A245F89F2F8C50EB2 /* libPods-ekoloAppv1-tvOSTests.a in Frameworks */,
+				CEF149C891D2834EFCACF110 /* libPods-ekoloAppv1-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +141,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				5C68068FCD427341231F221E /* libPods-ekoloAppv1.a */,
-				E19B22C0822B4D663B2DD3A0 /* libPods-ekoloAppv1-ekoloAppv1Tests.a */,
-				829AE96DC3C7414A532B879E /* libPods-ekoloAppv1-tvOS.a */,
-				AE7D1D5C6C6758A788742F8E /* libPods-ekoloAppv1-tvOSTests.a */,
+				5E4F3301EE1A89AC320ABE26 /* libPods-ekoloAppv1.a */,
+				B36FE37C3C834A6EB76FB305 /* libPods-ekoloAppv1-ekoloAppv1Tests.a */,
+				AC51A813F0A4233C42E92FE3 /* libPods-ekoloAppv1-tvOS.a */,
+				6BA12347234218E60921B069 /* libPods-ekoloAppv1-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,14 +152,14 @@
 		6B8EE3CD64E9129B51E3ACAF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1AA6CD43CDB7B22981DE7D9F /* Pods-ekoloAppv1.debug.xcconfig */,
-				8C683FD3DB7C8FA581B49735 /* Pods-ekoloAppv1.release.xcconfig */,
-				73640EA8A080E1CE9AE2B389 /* Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig */,
-				1434893277BB1F6A52378302 /* Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig */,
-				6127E259A6590D890FEA1777 /* Pods-ekoloAppv1-tvOS.debug.xcconfig */,
-				0AD1AB7CC2179155AC138165 /* Pods-ekoloAppv1-tvOS.release.xcconfig */,
-				878FE215E00B7B12953A8F72 /* Pods-ekoloAppv1-tvOSTests.debug.xcconfig */,
-				949ADA523DFE879521F30537 /* Pods-ekoloAppv1-tvOSTests.release.xcconfig */,
+				261D2E1EE7C8554807D9C4B8 /* Pods-ekoloAppv1.debug.xcconfig */,
+				A089F87C53E3C5AF6707F076 /* Pods-ekoloAppv1.release.xcconfig */,
+				54CB445C06E6FA4CA256824C /* Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig */,
+				F59F2F8F0AEC77D9E5D55753 /* Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig */,
+				39773DB3A16D27402812A3D0 /* Pods-ekoloAppv1-tvOS.debug.xcconfig */,
+				7A6AF789334CEFDE3D74FF15 /* Pods-ekoloAppv1-tvOS.release.xcconfig */,
+				46D3802F34C6BDEEF7F7FFB2 /* Pods-ekoloAppv1-tvOSTests.debug.xcconfig */,
+				A3E1E0A241C013F111D57BB9 /* Pods-ekoloAppv1-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -204,11 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ekoloAppv1Tests" */;
 			buildPhases = (
-				7430B062AAB8972E221A7CCE /* [CP] Check Pods Manifest.lock */,
+				24DBE6B31FC013DE6378032F /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				E1882576FF0D9E33EA2D9FD6 /* [CP] Copy Pods Resources */,
+				79C174770B8477B612EBB120 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,13 +224,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ekoloAppv1" */;
 			buildPhases = (
-				5C0AB12CBE473A0582030BC2 /* [CP] Check Pods Manifest.lock */,
+				80E99A3D2F917927796F9094 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				02B1BD2B2495494CF9ED7F2B /* [CP] Copy Pods Resources */,
+				B1358F7D68E6DF90B4934A45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,7 +245,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ekoloAppv1-tvOS" */;
 			buildPhases = (
-				97B77B14A4D21B5850ECF152 /* [CP] Check Pods Manifest.lock */,
+				9BEE9FF3D6E64533B767A16F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -265,7 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ekoloAppv1-tvOSTests" */;
 			buildPhases = (
-				97138A389B8B454949409F94 /* [CP] Check Pods Manifest.lock */,
+				C05AFDEAC627E25FB5BC11BE /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -377,7 +377,139 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		02B1BD2B2495494CF9ED7F2B /* [CP] Copy Pods Resources */ = {
+		24DBE6B31FC013DE6378032F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ekoloAppv1-ekoloAppv1Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		79C174770B8477B612EBB120 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80E99A3D2F917927796F9094 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ekoloAppv1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BEE9FF3D6E64533B767A16F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ekoloAppv1-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1358F7D68E6DF90B4934A45 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -429,65 +561,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ekoloAppv1/Pods-ekoloAppv1-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		5C0AB12CBE473A0582030BC2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ekoloAppv1-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7430B062AAB8972E221A7CCE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ekoloAppv1-ekoloAppv1Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97138A389B8B454949409F94 /* [CP] Check Pods Manifest.lock */ = {
+		C05AFDEAC627E25FB5BC11BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -507,80 +581,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97B77B14A4D21B5850ECF152 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ekoloAppv1-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E1882576FF0D9E33EA2D9FD6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ekoloAppv1-ekoloAppv1Tests/Pods-ekoloAppv1-ekoloAppv1Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -676,7 +676,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73640EA8A080E1CE9AE2B389 /* Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig */;
+			baseConfigurationReference = 54CB445C06E6FA4CA256824C /* Pods-ekoloAppv1-ekoloAppv1Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -699,7 +699,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1434893277BB1F6A52378302 /* Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig */;
+			baseConfigurationReference = F59F2F8F0AEC77D9E5D55753 /* Pods-ekoloAppv1-ekoloAppv1Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -719,7 +719,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AA6CD43CDB7B22981DE7D9F /* Pods-ekoloAppv1.debug.xcconfig */;
+			baseConfigurationReference = 261D2E1EE7C8554807D9C4B8 /* Pods-ekoloAppv1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -743,7 +743,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C683FD3DB7C8FA581B49735 /* Pods-ekoloAppv1.release.xcconfig */;
+			baseConfigurationReference = A089F87C53E3C5AF6707F076 /* Pods-ekoloAppv1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -765,7 +765,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6127E259A6590D890FEA1777 /* Pods-ekoloAppv1-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 39773DB3A16D27402812A3D0 /* Pods-ekoloAppv1-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -793,7 +793,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AD1AB7CC2179155AC138165 /* Pods-ekoloAppv1-tvOS.release.xcconfig */;
+			baseConfigurationReference = 7A6AF789334CEFDE3D74FF15 /* Pods-ekoloAppv1-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -821,7 +821,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 878FE215E00B7B12953A8F72 /* Pods-ekoloAppv1-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 46D3802F34C6BDEEF7F7FFB2 /* Pods-ekoloAppv1-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -848,7 +848,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 949ADA523DFE879521F30537 /* Pods-ekoloAppv1-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = A3E1E0A241C013F111D57BB9 /* Pods-ekoloAppv1-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
