@@ -29,9 +29,8 @@ const SliderScreen = (props) => {
 
   const ref = useCallback((node) => {
     if (node !== null) {
-      props.dropFocus(node.isFocused());
+      props.dropFocus(node);
       // props.setAddress(node.setAddressText())
-      console.log('ref2', node.isFocused()); // node = elRef.current
     }
   }, []);
 

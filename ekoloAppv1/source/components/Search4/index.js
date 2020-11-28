@@ -1,19 +1,20 @@
-import React, {useEffect, useRef, useState, useCallback} from 'react';
+import React, {useEffect, useRef, useState, useCallback, createRef} from 'react';
 import {Platform, StyleSheet, View, Image} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Comp from '../TestComp/index';
+
 // import {Input} from 'react-native-elements';
 import Feather from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation';
 
-const Search = (props) => {
-  const {onLocationSelected, pickupFocus, childFocus, displayText} = props;
+const Search = React.forwardRef((props,ref) => {
+  const {onLocationSelected, pickupFocus, childFocus, clearText,displayText} = props;
 
   //   state = {
   //     searchFocused: false,
   //   };
 
-  // const ref = useRef();
+  // const ref = createRef();
 
   const [searchFocused, setsearchFocus] = useState(false);
 
@@ -23,14 +24,15 @@ const Search = (props) => {
   //   setsearchFocus(ref.current?.isFocused());
   //   // pickupFocus(ref.current?.isFocused());
   // }, [ref.current?.isFocused(), searchFocused]);
-  const ref = useCallback((node) => {
-    // if (node !== null) {
-    props.childFocus(node);
-    // node?.setAddressText('Demo');
-    // if (node.isFocused() == true) node.clear();
-    // console.log('ref', node.isFocused()); // node = elRef.current
-    // }
-  }, []);
+  // const ref = useCallback((node) => {
+  //   // if (node !== null) {
+  //   props.childFocus(node);
+  //   props.clearText(node);
+  //   // node?.setAddressText('Demo');
+  //   // if (node.isFocused() == true) node.clear();
+  //   // console.log('ref', node.isFocused()); // node = elRef.current
+  //   // }
+  // }, []);
 
   // useEffect(() => {
   //   pickupFocus;
@@ -51,9 +53,7 @@ const Search = (props) => {
       <View />
       <GooglePlacesAutocomplete
         ref={ref}
-        placeholder={
-          displayText == 'Location' ? 'Pickup Location?' : displayText
-        }
+        placeholder='Pickup Location?'
         onPress={onLocationSelected}
         query={{
           key: 'AIzaSyB_bXhFmnZbLk9qSl3z8-1Np2QxZLbMSsY',
@@ -63,10 +63,11 @@ const Search = (props) => {
           radius: '120000',
         }}
         textInputProps={{
+          selectTextOnFocus: true,
           onFocus: childFocus,
           placeholderTextColor: '#333',
           // InputComp: Input,
-          // leftIcon: {type: 'font-awesome', name: 'chevron-left'},
+          // leftIcon: {Feather},
           errorStyle: {color: 'red'},
           // onFocus: () => {
           //   this.setState({ searchFocused: true });
@@ -77,7 +78,7 @@ const Search = (props) => {
           autoCapitalize: 'none',
           autoCorrect: false,
         }}
-        listViewDisplayed="auto"
+        listViewDisplayed='auto'
         fetchDetails={true}
         enablePoweredByContainer={false}
         GooglePlacesSearchQuery={{
@@ -87,12 +88,20 @@ const Search = (props) => {
         // renderLeftButton={() => (
         //   <Feather
         //     name="menu"
-        //     size={25}
+        //     size={45}
         //     style={{
         //       alignContent: 'center',
         //       alignSelf: 'center',
         //       justifyContent: 'center',
-        //       backgroundColor: 'transparent',
+        //       backgroundColor: 'white',
+        //       left:0,
+        //       shadowColor: '#000',
+        //       shadowOpacity: 0.1,
+        //       shadowOffset: {x: 0, y: 4},
+        //       shadowRadius: 15,
+        //       borderWidth: 1,
+        //       borderColor: '#DDD',
+        //       borderRadius: 10,
         //     }}
         //   />
         // )}
@@ -167,9 +176,10 @@ const Search = (props) => {
             // alignSelf: 'flex-start',
             // alignContent: 'flex-start',
             // alignItems: 'flex-start',
-            top: 50,
-            left: 10,
-            right: 10,
+            // top: 50,
+            marginTop:45,
+            // left: 10,
+            // right: 10,
             backgroundColor: 'transparent',
             borderRadius: 5,
             flex: 1,
@@ -186,7 +196,7 @@ const Search = (props) => {
       />
     </View>
   );
-};
+})
 
 export default Search;
 
