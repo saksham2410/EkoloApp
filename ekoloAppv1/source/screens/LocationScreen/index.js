@@ -27,7 +27,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import Search from '../../components/Search4';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import SliderScreen from '../SliderScreen/index';
-import marker from '../../assets/marker_new.png';
+import marker from '../../assets/marker_new_green_full.png';
+import marker_red from '../../assets/marker_new_red.png';
 import markerImage from '../../assets/marker.png';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
@@ -58,12 +59,10 @@ const LocationScreen = (props) => {
   const dropRef = createRef();
   const map = useRef(null);
   const [region, setRegion] = useState(null);
-  const [focusPickup, setfocusPickup] = useState(false);
+  const [selectPickup, setselectPickup] = useState(true);
   const [duration, setDuration] = useState(null);
-  const [dropAddress, setdropAddress] = useState('Drop Location?');
+  const [tempStateDrop, settempStateDrop] = useState({});
   const [pickupbutton, visiblepickupbutton] = useState(false);
-  const [focusDrop, setfocusDrop] = useState(false);
-  //   const [pickupAddress, setPickupAddress] = useState('Pickup Location?');
   useEffect(() => {
     async function fetchMyAPI() {
       Geolocation.getCurrentPosition(
@@ -72,13 +71,6 @@ const LocationScreen = (props) => {
           let longitude = info.coords.longitude;
           let newAddress = await getAddressFromCoordinates(latitude, longitude);
           pickupRef.current?.setAddressText(newAddress);
-          //   let newAddress = await getAddressFromCoordinates(latitude, longitude);
-          //   const response = await Geocoder.from({latitude, longitude});
-          //   const address = response.results[0].formatted_address;
-          //   const location = address.split(',');
-          //   setLocation(location[2] + ',' + location[3]);
-          //   setPickupAddress(location[2] + ',' + location[3]);
-
           setRegion({
             latitude,
             longitude,
@@ -102,7 +94,6 @@ const LocationScreen = (props) => {
         },
       );
     }
-
     fetchMyAPI();
   }, []);
   const handleLocationSelectedPickup = (data, {geometry}) => {
@@ -123,11 +114,6 @@ const LocationScreen = (props) => {
       latitudeDelta: 0.009,
       longitudeDelta: 0.009 * ASPECT_RATIO,
     });
-  };
-  const handlePickupFocus = (val) => {
-    if (val?.isFocused() == true || false) {
-      setfocusPickup(val.isFocused());
-    }
   };
   const goToCurrentLocation = async () => {
     Geolocation.getCurrentPosition(
@@ -189,7 +175,12 @@ const LocationScreen = (props) => {
     return (Value * Math.PI) / 180;
   }
   const handleRegionChange = async (pickup) => {
-    if (!_.isEmpty(pickup) && _.isEmpty(dropdata) && !_.isEmpty(pickupdata)) {
+    if (
+      !_.isEmpty(pickup) &&
+      _.isEmpty(dropdata) &&
+      !_.isEmpty(pickupdata) &&
+      selectPickup
+    ) {
       let latitude = pickup.latitude;
       let longitude = pickup.longitude;
       let latitude2 = pickupdata.latitude;
@@ -214,6 +205,20 @@ const LocationScreen = (props) => {
           longitudeDelta: 0.009 * ASPECT_RATIO,
         }),
       );
+    } else if (
+      !_.isEmpty(pickup) &&
+      !selectPickup &&
+      _.isEmpty(dropdata) &&
+      !_.isEmpty(pickupdata)
+    ) {
+      let latitude = pickup.latitude;
+      let longitude = pickup.longitude;
+      settempStateDrop({
+        latitude,
+        longitude,
+        latitudeDelta: 0.009,
+        longitudeDelta: 0.009 * ASPECT_RATIO,
+      });
     }
   };
   const handleLocationSelectedDrop = (data, {geometry}) => {
@@ -231,6 +236,7 @@ const LocationScreen = (props) => {
       }),
     );
   };
+
   //   const handleDropFocus = (val) => {
   //     if (val?.isFocused() == true || false) {
   //       setfocusDrop(val.isFocused());
@@ -243,6 +249,27 @@ const LocationScreen = (props) => {
   const handleBack = () => {
     dropRef.current?.setAddressText('Drop Location?');
     dispatch(setReduxDrop({}));
+    animateToRegion(pickupdata);
+    setselectPickup(true);
+  };
+  const handleSelect = () => {
+    setselectPickup(false);
+  };
+  const handleClickDrop = async () => {
+    let latitude = tempStateDrop.latitude;
+    let longitude = tempStateDrop.longitude;
+    let newAddress = await getAddressFromCoordinates(latitude, longitude);
+    dropRef.current?.setAddressText(newAddress);
+    dispatch(
+      setReduxDrop({
+        latitude,
+        longitude,
+        title: newAddress,
+        latitudeDelta: 0.009,
+        longitudeDelta: 0.009 * ASPECT_RATIO,
+      }),
+    );
+    setselectPickup(true);
   };
   return (
     <View style={{flex: 1}}>
@@ -309,11 +336,10 @@ const LocationScreen = (props) => {
           </Back>
           <Details />
         </Fragment>
-      ) : (
+      ) : selectPickup ? (
         <Fragment>
           <SafeAreaView>
             <Search
-              //   displayText={pickupAddress}
               onLocationSelected={handleLocationSelectedPickup}
               ref={pickupRef}
             />
@@ -346,11 +372,11 @@ const LocationScreen = (props) => {
           <SlidingUpPanel
             ref={panelRef}
             avoidKeyboard={true}
+            backdropOpacity={0.2}
             draggableRange={
               pickupbutton
                 ? {top: 0, bottom: 0}
                 : {top: (5 * SCREEN_HEIGHT) / 6, bottom: 140}
-              // bottom: destination ? 0 : focusDrop ? (10*SCREEN_HEIGHT) / 11 : 140,
             }
             onDragEnd={(value, gestureState) => {
               console.log(value, gestureState);
@@ -360,10 +386,21 @@ const LocationScreen = (props) => {
             <SliderScreen
               ref={dropRef}
               onLocationSelected={handleLocationSelectedDrop}
-              //   optionSelect={optionSelect}
-              //   dropAddress={dropAddress}
+              handleSelect={handleSelect}
             />
           </SlidingUpPanel>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <TouchableOpacity style={styles.dropButton}>
+            <Button
+              title="Drop here"
+              color="#ffffff"
+              onPress={handleClickDrop}></Button>
+          </TouchableOpacity>
+          <View style={styles.fakeMarker}>
+            <Image style={{height: 48, width: 48}} source={marker_red} />
+          </View>
         </Fragment>
       )}
     </View>
@@ -395,6 +432,16 @@ const styles = StyleSheet.create({
   },
   pickupButton: {
     top: (SCREEN_HEIGHT * 2) / 3,
+    // zIndex: 100000000,
+    backgroundColor: '#363534',
+    width: 200,
+    height: 50,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+  },
+  dropButton: {
+    top: (SCREEN_HEIGHT * 3) / 4,
     // zIndex: 100000000,
     backgroundColor: '#363534',
     width: 200,

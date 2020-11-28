@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState, useCallback} from 'react';
 import {Platform, StyleSheet, View, Image} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
-import Comp from '../TestComp/index';
 // import {Input} from 'react-native-elements';
 import Feather from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation';

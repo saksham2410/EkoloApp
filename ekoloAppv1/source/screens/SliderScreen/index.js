@@ -25,6 +25,7 @@ const SliderScreen = React.forwardRef((props,ref) => {
     dropFocus,
     optionSelect,
     dropAddress,
+    handleSelect
   } = props;
   // tempRef = 
 
@@ -42,22 +43,7 @@ const SliderScreen = React.forwardRef((props,ref) => {
       </TouchableOpacity>
 
       <View>
-        {/* <CateGoryCard optionSelect={optionSelect} /> */}
-        {/* <View style={styles.upperCard}>
-          <View style={styles.search}>
-            <View style={styles.inputWrapper}>
-              <TextInput
-                placeholder="Where are you going?"
-                placeholderTextColor="#afb1b6"
-              />
-            </View>
-          </View>
-        </View> */}
         <View style={styles.card}>
-          {/* <View style={styles.drop}>
-            <Text style={styles.dropText}>Drop Location?</Text>
-            
-          </View> */}
           <View>
             <Search
               onLocationSelected={onLocationSelected}
@@ -68,7 +54,7 @@ const SliderScreen = React.forwardRef((props,ref) => {
           </View>
 
           <View style={styles.bottomCard}>
-            <TouchableOpacity style={styles.bottomCardPin}>
+            <TouchableOpacity style={styles.bottomCardPin} onPress={handleSelect}>
               <Fontisto
                 name="map-marker-alt"
                 size={20}
