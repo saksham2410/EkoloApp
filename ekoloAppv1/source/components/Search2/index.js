@@ -21,10 +21,10 @@ const Search = React.forwardRef((props, ref) => {
 
   // const {searchFocused} = this.state;
   const {onLocationSelected, type, dropFocus, dropAddress} = props;
-  console.log('drop', dropAddress);
-  useEffect(() => {
-    ref.current?.setAddressText(dropAddress);
-  }, []);
+  // console.log('drop', dropAddress);
+  // useEffect(() => {
+  //   ref.current?.setAddressText(dropAddress);
+  // }, []);
   // const ref = useCallback((node) => {
   //   if (node !== null) {
   //     props.dropFocus(node.isFocused())
@@ -46,7 +46,7 @@ const Search = React.forwardRef((props, ref) => {
       <View />
       <GooglePlacesAutocomplete
         ref={ref}
-        placeholder={dropAddress}
+        placeholder='Drop Location?'
         // onPress={(data, details) => {
         //   // 'details' is provided when fetchDetails = true
         //   console.log(data, details);
@@ -70,6 +70,7 @@ const Search = React.forwardRef((props, ref) => {
         //   );
         // }}
         textInputProps={{
+          selectTextOnFocus: true,
           // onFocus,
           placeholderTextColor: '#333',
           // InputComp: Input,

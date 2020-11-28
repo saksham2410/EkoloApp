@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect, useCallback} from 'react';
+import React, {useState, useRef, useEffect, useCallback, createRef} from 'react';
 import {
   View,
   StyleSheet,
@@ -18,7 +18,7 @@ import RecentPlaces from '../../components/RecentPlaces';
 import FavoritePlaces from '../../components/FavoritePlaces';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-const SliderScreen = (props) => {
+const SliderScreen = React.forwardRef((props,ref) => {
   const {
     onLocationSelected,
     type,
@@ -26,21 +26,22 @@ const SliderScreen = (props) => {
     optionSelect,
     dropAddress,
   } = props;
+  // tempRef = 
 
-  const ref = useCallback((node) => {
-    if (node !== null) {
-      props.dropFocus(node);
-      // props.setAddress(node.setAddressText())
-    }
-  }, []);
+  // const ref = useCallback((node) => {
+  //   if (node !== null) {
+  //     props.dropFocus(node);
+  //     // props.setAddress(node.setAddressText())
+  //   }
+  // }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TouchableOpacity style={{display: 'none'}}>
         <Fontisto name="arrow-left-l" size={24} style={{marginLeft: 10}} />
       </TouchableOpacity>
 
-      <SafeAreaView>
+      <View>
         {/* <CateGoryCard optionSelect={optionSelect} /> */}
         {/* <View style={styles.upperCard}>
           <View style={styles.search}>
@@ -57,14 +58,14 @@ const SliderScreen = (props) => {
             <Text style={styles.dropText}>Drop Location?</Text>
             
           </View> */}
-          <SafeAreaView>
+          <View>
             <Search
               onLocationSelected={onLocationSelected}
               style={styles.search2}
               ref={ref}
               dropAddress={dropAddress}
             />
-          </SafeAreaView>
+          </View>
 
           <View style={styles.bottomCard}>
             <TouchableOpacity style={styles.bottomCardPin}>
@@ -82,14 +83,14 @@ const SliderScreen = (props) => {
             </TouchableOpacity>
           </View>
         </View>
-      </SafeAreaView>
-      <SafeAreaView style={styles.contentWrapper}>
+      </View>
+      <View style={styles.contentWrapper}>
         {/* <FavoritePlaces /> */}
         <RecentPlaces />
-      </SafeAreaView>
-    </View>
+      </View>
+    </SafeAreaView>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
