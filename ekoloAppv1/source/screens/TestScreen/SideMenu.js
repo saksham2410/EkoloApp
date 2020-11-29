@@ -1,19 +1,9 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import {View, StyleSheet, Dimensions, TouchableOpacity, Text, Switch} from 'react-native';
 
-import {
-  Avatar,
-  Title,
-  Caption,
-  Paragraph,
-  Drawer,
-  Text,
-  TouchableRipple,
-  Switch,
-} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
-import Feather from 'react-native-vector-icons/Feather';
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const vw = Dimensions.get('window').width / 100;
@@ -35,13 +25,13 @@ const SideMenu = (props) => {
                             size={50}
                         /> */}
             <View style={{marginLeft: 15, flexDirection: 'column'}}>
-              <Title style={styles.title}>Saksham Gupta</Title>
-              <Caption style={styles.caption}>Rider Account</Caption>
+              <Text style={styles.title}>Saksham Gupta</Text>
+              <Text style={styles.caption}>Rider Account</Text>
             </View>
           </View>
         </View>
         {/* Drawer Section */}
-        <Drawer.Section style={{marginTop: 20, marginLeft: 10}}>
+        <View style={{marginTop: 20, marginLeft: 10}}>
           <DrawerItem
             icon={() => (
               <Icon
@@ -103,10 +93,10 @@ const SideMenu = (props) => {
               props.navigation.navigate('Home');
             }}
           />
-        </Drawer.Section>
+        </View>
 
-        <Drawer.Section title="Choose Preferences">
-          <TouchableRipple
+        <View title="Choose Preferences">
+          <TouchableOpacity
             onPress={() => {
               toggleTheme();
             }}>
@@ -116,10 +106,10 @@ const SideMenu = (props) => {
                 <Switch value={cDarkTheme} />
               </View>
             </View>
-          </TouchableRipple>
-        </Drawer.Section>
+          </TouchableOpacity>
+        </View>
       </DrawerContentScrollView>
-      <Drawer.Section style={styles.bottomDrawerSection}>
+      <View style={styles.bottomDrawerSection}>
         <DrawerItem
           icon={() => (
             <Icon
@@ -132,7 +122,7 @@ const SideMenu = (props) => {
             signOut();
           }}
         />
-      </Drawer.Section>
+      </View>
     </View>
   );
 };
@@ -155,6 +145,7 @@ const styles = StyleSheet.create({
   caption: {
     fontSize: 14,
     lineHeight: 14,
+    marginTop:10
   },
   row: {
     marginTop: 2 * vh,
