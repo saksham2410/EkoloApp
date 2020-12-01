@@ -198,7 +198,7 @@ const LocationScreen = (props) => {
         pickupRef.current?.setAddressText(newAddress);
       }
       // const res1 = calcCrow(latitude,longitude,origin.latitude)
-      if(res>0.05)visiblepickupbutton(true);
+      if (res > 0.05) visiblepickupbutton(true);
       // optimise this
       dispatch(
         setReduxPickup({
@@ -372,11 +372,9 @@ const LocationScreen = (props) => {
             style={{
               ...styles.pickupButton,
               display: pickupbutton ? 'flex' : 'none',
-            }}>
-            <Button
-              title="Pickup here"
-              color="#363534"
-              onPress={handleClick}></Button>
+            }}
+            onPress={handleClick}>
+            <Text style={{color: '#ffffff', fontSize: 16}}>Pickup here</Text>
           </TouchableOpacity>
           <SlidingUpPanel
             ref={panelRef}
@@ -401,11 +399,8 @@ const LocationScreen = (props) => {
         </Fragment>
       ) : (
         <Fragment>
-          <TouchableOpacity style={styles.dropButton}>
-            <Button
-              title="Drop here"
-              color="#363534"
-              onPress={handleClickDrop}></Button>
+          <TouchableOpacity style={styles.dropButton} onPress={handleClickDrop}>
+          <Text style={{color: '#ffffff', fontSize: 16}}>Drop here</Text>
           </TouchableOpacity>
           <View style={styles.fakeMarker}>
             <Image style={{height: 48, width: 48}} source={marker_red} />
@@ -439,13 +434,15 @@ const styles = StyleSheet.create({
     top: Platform.select({ios: 58, android: 38}),
     display: 'flex',
     color: '#000000',
-    width: 28
+    width: 28,
     // display: destination ? 'none' : 'flex',
   },
   pickupButton: {
     top: (SCREEN_HEIGHT * 2) / 3,
     // display: pickupbutton? 'flex': 'none',
     // zIndex: 100000000,
+    alignContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#363534',
     width: 200,
     height: 50,
@@ -457,6 +454,8 @@ const styles = StyleSheet.create({
     top: (SCREEN_HEIGHT * 3) / 4,
     // zIndex: 100000000,
     backgroundColor: '#363534',
+    alignContent: 'center',
+    alignItems: 'center',
     width: 200,
     height: 50,
     alignSelf: 'center',
