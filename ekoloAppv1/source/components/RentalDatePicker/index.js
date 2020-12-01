@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Platform} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {SCREEN_HEIGHT, SCREEN_WIDTH, LOGIN_VIEW_HEIGHT} from '../../Constants';
 const ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;

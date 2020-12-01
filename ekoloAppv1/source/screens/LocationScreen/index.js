@@ -16,6 +16,7 @@ import {
   Button,
   ActivityIndicator,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import MapView, {Marker, Polyline, PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
@@ -37,6 +38,7 @@ import {
   setReduxDrop,
   setReduxPickup,
 } from '../../store/actions';
+import mapStyle from '../MapView/mapstyle';
 import Directions from '../../components/Directions';
 import Details from '../../components/Details';
 import backImage from '../../assets/back.png';
@@ -196,7 +198,8 @@ const LocationScreen = (props) => {
         pickupRef.current?.setAddressText(newAddress);
       }
       // const res1 = calcCrow(latitude,longitude,origin.latitude)
-      if (res > 0.05) visiblepickupbutton(true); // optimise this
+      if(res>0.05)visiblepickupbutton(true);
+      // optimise this
       dispatch(
         setReduxPickup({
           latitude,
@@ -277,7 +280,7 @@ const LocationScreen = (props) => {
         style={StyleSheet.absoluteFillObject}
         initialRegion={region}
         // region={pickup}
-        // customMapStyle={mapStyle}
+        customMapStyle={mapStyle}
         onRegionChangeComplete={(pickup) => {
           handleRegionChange(pickup);
         }}
@@ -285,6 +288,7 @@ const LocationScreen = (props) => {
         provider={PROVIDER_GOOGLE}
         showsUserLocation
         ref={map}
+        showsMyLocationButton={false}
         loadingEnabled>
         {!_.isEmpty(dropdata) && !_.isEmpty(pickupdata) && (
           <Fragment>
@@ -343,6 +347,14 @@ const LocationScreen = (props) => {
               onLocationSelected={handleLocationSelectedPickup}
               ref={pickupRef}
             />
+            <Feather
+              name="menu"
+              size={28}
+              style={styles.menuStyle}
+              onPress={() => {
+                props.navigation.openDrawer();
+              }}
+            />
           </SafeAreaView>
           <View style={styles.locationIcon}>
             <TouchableOpacity onPress={goToCurrentLocation}>
@@ -353,22 +365,19 @@ const LocationScreen = (props) => {
           <View style={styles.fakeMarker}>
             <Image style={{height: 48, width: 48}} source={marker} />
           </View>
-          <View style={styles.menuStyle}>
-            <Feather
-              name="menu"
-              size={35}
-              onPress={() => {
-                props.navigation.openDrawer();
-              }}
-            />
-          </View>
-          <TouchableOpacity style={styles.pickupButton}>
+          {/* <View style={}> */}
+
+          {/* </View> */}
+          <TouchableOpacity
+            style={{
+              ...styles.pickupButton,
+              display: pickupbutton ? 'flex' : 'none',
+            }}>
             <Button
               title="Pickup here"
-              color="#ffffff"
+              color="#363534"
               onPress={handleClick}></Button>
           </TouchableOpacity>
-          <Button title="Show panel" />
           <SlidingUpPanel
             ref={panelRef}
             avoidKeyboard={true}
@@ -395,7 +404,7 @@ const LocationScreen = (props) => {
           <TouchableOpacity style={styles.dropButton}>
             <Button
               title="Drop here"
-              color="#ffffff"
+              color="#363534"
               onPress={handleClickDrop}></Button>
           </TouchableOpacity>
           <View style={styles.fakeMarker}>
@@ -420,18 +429,22 @@ const styles = StyleSheet.create({
   fakeMarker: {
     left: '50%',
     marginLeft: -24,
-    marginTop: -21,
+    marginTop: Platform.select({ios: -24, android: -48}),
     position: 'absolute',
     top: '50%',
     // display: hasrideStarted ? 'none' : 'flex',
   },
   menuStyle: {
     marginLeft: 20,
-    top: 0,
+    top: Platform.select({ios: 58, android: 38}),
+    display: 'flex',
+    color: '#000000',
+    width: 28
     // display: destination ? 'none' : 'flex',
   },
   pickupButton: {
     top: (SCREEN_HEIGHT * 2) / 3,
+    // display: pickupbutton? 'flex': 'none',
     // zIndex: 100000000,
     backgroundColor: '#363534',
     width: 200,

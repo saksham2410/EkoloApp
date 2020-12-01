@@ -1,14 +1,25 @@
-import React, {useEffect, useRef, useState, useCallback, createRef} from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  createRef,
+} from 'react';
 import {Platform, StyleSheet, View, Image} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
-
 
 // import {Input} from 'react-native-elements';
 import Feather from 'react-native-vector-icons/Feather';
 // import Geolocation from '@react-native-community/geolocation';
 
-const Search = React.forwardRef((props,ref) => {
-  const {onLocationSelected, pickupFocus, childFocus, clearText,displayText} = props;
+const Search = React.forwardRef((props, ref) => {
+  const {
+    onLocationSelected,
+    pickupFocus,
+    childFocus,
+    clearText,
+    displayText,
+  } = props;
 
   //   state = {
   //     searchFocused: false,
@@ -53,7 +64,7 @@ const Search = React.forwardRef((props,ref) => {
       <View />
       <GooglePlacesAutocomplete
         ref={ref}
-        placeholder='Pickup Location?'
+        placeholder="Pickup Location?"
         onPress={onLocationSelected}
         query={{
           key: 'AIzaSyB_bXhFmnZbLk9qSl3z8-1Np2QxZLbMSsY',
@@ -78,7 +89,7 @@ const Search = React.forwardRef((props,ref) => {
           autoCapitalize: 'none',
           autoCorrect: false,
         }}
-        listViewDisplayed='auto'
+        listViewDisplayed="auto"
         fetchDetails={true}
         enablePoweredByContainer={false}
         GooglePlacesSearchQuery={{
@@ -144,7 +155,7 @@ const Search = React.forwardRef((props,ref) => {
             flex: 1,
             backgroundColor: 'transparent',
             height: '100%',
-            marginHorizontal: 20,
+            marginHorizontal: 10,
             borderTopWidth: 0,
             borderBottomWidth: 0,
           },
@@ -155,7 +166,7 @@ const Search = React.forwardRef((props,ref) => {
             marginLeft: 0,
             marginRight: 0,
             marginTop: 0,
-            paddingLeft: 30,
+            paddingLeft: 40,
             fontSize: 15,
             elevation: 0,
             shadowColor: '#000',
@@ -173,11 +184,12 @@ const Search = React.forwardRef((props,ref) => {
           },
           listView: {
             position: 'absolute',
+            marginHorizontal:10,
             // alignSelf: 'flex-start',
             // alignContent: 'flex-start',
             // alignItems: 'flex-start',
             // top: 50,
-            marginTop:45,
+            marginTop: 45,
             // left: 10,
             // right: 10,
             backgroundColor: 'transparent',
@@ -196,7 +208,7 @@ const Search = React.forwardRef((props,ref) => {
       />
     </View>
   );
-})
+});
 
 export default Search;
 

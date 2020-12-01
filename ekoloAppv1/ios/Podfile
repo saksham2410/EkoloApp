@@ -3,10 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
+
 target 'ekoloAppv1' do
   rn_maps_path = '../node_modules/react-native-maps'
  pod 'react-native-google-maps', :path => rn_maps_path
  pod 'GoogleMaps'
+ pod 'RNLocalize', :path => '../node_modules/react-native-localize'
  pod 'Google-Maps-iOS-Utils'
   config = use_native_modules!
 

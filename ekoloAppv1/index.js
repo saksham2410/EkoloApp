@@ -9,6 +9,7 @@ import Map from './source/screens/MapView/index';
 import HomeScreen from './source/screens/HomeScreen/index';
 import RentalScreen from './source/screens/RentalScreen/index';
 import TestScreen from './source/screens/TestScreen/index';
+// import LanguageContextProvider from './source/context/LanguageContext'
 import Login from './source/App';
 import {name as appName} from './app.json';
 import {NavigationContainer} from '@react-navigation/native';

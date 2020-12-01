@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
+import com.airbnb.android.react.maps.MapsPackage;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -19,6 +20,13 @@ public class MainApplication extends Application implements ReactApplication {
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
+        // @Override
+        // protected List<ReactPackage> getPackages() {
+        // return Arrays.<ReactPackage>asList(
+        //     new MainReactPackage(),
+        //      new MapsPackage()
+        //    );
+        // }
 
         @Override
         protected List<ReactPackage> getPackages() {
@@ -26,6 +34,8 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+          // packages.add(new MapsPackage());
+          // packages.add(new MainReactPackage());
           return packages;
         }
 
@@ -33,12 +43,15 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+        
       };
 
   @Override
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
   }
+ 
+
 
   @Override
   public void onCreate() {

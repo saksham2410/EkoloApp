@@ -78,7 +78,7 @@ const SideMenu = (props) => {
             )}
             label="Settings"
             onPress={() => {
-              props.navigation.navigate('Rental');
+              props.navigation.navigate('Settings');
             }}
           />
           <DrawerItem

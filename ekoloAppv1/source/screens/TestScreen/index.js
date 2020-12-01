@@ -1,10 +1,11 @@
-import * as React from 'react';
-import {Text, View, Dimensions} from 'react-native';
+import  React, {useState,useEffect} from 'react';
+import {Text, View, Dimensions,I18nManager} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Map from '../MapView/index';
 import YourRide from '../RideComplete/index';
 import RentalScreen from '../RentalScreen/index';
+import SettingsScreen from '../SettingsScreen/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
@@ -12,6 +13,9 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import LocationScreen from '../LocationScreen/index';
 import {store} from '../../store/store';
 import SideMenu from './SideMenu';
+
+// import { translations, TranslationContext } from '../../lang/translations';
+// import memoize from "lodash.memoize";
 const Drawer = createDrawerNavigator();
 function HomeScreen() {
   return (
@@ -21,13 +25,13 @@ function HomeScreen() {
   );
 }
 
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1}}>
-      <RentalScreen />
-    </View>
-  );
-}
+// function SettingsScreen() {
+//   return (
+//     <View style={{flex: 1}}>
+//       <RentalScreen />
+//     </View>
+//   );
+// }
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -53,6 +57,7 @@ const DrawerNavigator = () => {
     <Drawer.Navigator drawerContent={(props) => <SideMenu {...props} />}>
       <Drawer.Screen name="Home" component={BottomTabNavigator} />
       <Drawer.Screen name="Rental" component={RentalScreen} />
+      <Drawer.Screen name="Settings" component={SettingsScreen} />
     </Drawer.Navigator>
   );
 };
@@ -122,6 +127,7 @@ const BottomTabNavigator = () => {
 // })
 
 export default function App2() {
+
   return (
     <Provider store={store}>
       <NavigationContainer>

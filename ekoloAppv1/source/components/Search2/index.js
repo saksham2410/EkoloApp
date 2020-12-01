@@ -164,8 +164,7 @@ const Search = React.forwardRef((props, ref) => {
           listView: {
             position: 'absolute',
             top: 50,
-            left: 10,
-            right: 10,
+            // marginHorizontal: 10,
             backgroundColor: 'transparent',
             borderRadius: 5,
             flex: 1,

@@ -10,7 +10,7 @@ export default [
           color: '#707d91',
         },
         {
-          lightness: 40,
+          lightness: 10,
         },
       ],
     },
@@ -25,7 +25,7 @@ export default [
           color: '#ffffff',
         },
         {
-          lightness: 16,
+          lightness: 4,
         },
       ],
     },
@@ -46,7 +46,7 @@ export default [
           color: '#fefefe',
         },
         {
-          lightness: 20,
+          lightness: 2,
         },
       ],
     },
@@ -58,7 +58,7 @@ export default [
           color: '#fefefe',
         },
         {
-          lightness: 17,
+          lightness: 2,
         },
         {
           weight: 1.2,
@@ -79,7 +79,7 @@ export default [
       elementType: 'geometry',
       stylers: [
         {
-          color: '#f5f5f5',
+          color: '#edebeb',
         },
         {
           lightness: 20,
@@ -91,7 +91,7 @@ export default [
       elementType: 'geometry',
       stylers: [
         {
-          color: '#f5f5f5',
+          color: '#edebeb',
         },
         {
           lightness: 21,
@@ -103,7 +103,7 @@ export default [
       elementType: 'geometry',
       stylers: [
         {
-          color: '#dedede',
+          color: '#61e885',
         },
         {
           lightness: 5,
@@ -136,7 +136,7 @@ export default [
           color: '#ffffff',
         },
         {
-          lightness: 17,
+          lightness: 0,
         },
       ],
     },
@@ -148,7 +148,7 @@ export default [
           color: '#ffffff',
         },
         {
-          lightness: 29,
+          lightness: 2,
         },
         {
           weight: 0.2,
@@ -172,7 +172,7 @@ export default [
           color: '#ffffff',
         },
         {
-          lightness: 18,
+          lightness: 2,
         },
       ],
     },
@@ -193,7 +193,7 @@ export default [
           color: '#ffffff',
         },
         {
-          lightness: 16,
+          lightness: 2,
         },
       ],
     },
@@ -205,7 +205,7 @@ export default [
           color: '#f2f2f2',
         },
         {
-          lightness: 19,
+          lightness: 2,
         },
       ],
     },
@@ -217,7 +217,7 @@ export default [
           color: '#e9e9e9',
         },
         {
-          lightness: 17,
+          lightness: 2,
         },
       ],
     },
